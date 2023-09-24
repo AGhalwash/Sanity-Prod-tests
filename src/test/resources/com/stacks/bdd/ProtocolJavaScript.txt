@@ -1,0 +1,222 @@
+<script>
+// BROWSER DETECTION
+var browser_detected = "";
+// SAFARI
+if ( !!navigator.userAgent.match(/safari/i) && !navigator.userAgent.match(/chrome/i) && typeof document.body.style.webkitFilter !== "undefined" && !window.chrome ) { browser_detected = "SAFARI"; }
+// FIREFOX
+else if ( !!window.sidebar ) { browser_detected = "FIREFOX"; }
+// CHROME
+else { browser_detected = "CHROME"; }
+
+// Protocol settings
+var protocol_list_of_pages = ["carpeta_5844", "carpeta_5845"];
+var protocol_print_title = "Documents de test";
+var protocol_type_is_CERFA = false;
+var protocol_size_is_landscape = false;
+var correction_marge_top_Chrome = 0.0; // min -12 / max +12 / defaut 0.0
+var correction_marge_left_Chrome = -0.6; // min -12 / max +12 / defaut -0.6
+var correction_marge_top_Firefox = 0.0; // min -12 / max +12 / defaut 0.0
+var correction_marge_left_Firefox = 0.0; // min -12 / max +12 / defaut 0.0
+var correction_marge_top_Safari = 0.0; // min ? / max ? / defaut 0.0
+var correction_marge_left_Safari = 0.0; // min ? / max ? / defaut 0.0
+
+// Summary settings
+var summary_list_of_pages = ["sommaire_page_0","sommaire_page_1","sommaire_page_2","sommaire_page_3","sommaire_page_4"];
+var summary_print_title = "Resume de ..";
+var summary_size_is_landscape = false;
+
+// HTML data to print
+var bloc_HTML_CSS = "";
+var bloc_HTML = "";
+
+// print with margin preferences
+function set_CSS_media_print(document_type)
+{
+	if (document_type == "protocol")
+	{
+		bloc_HTML_CSS = "<style> .contenedorControl{ position:absolute; } h4 { margin-top:2px; } input[type='radio'] { margin-top:12px; margin-left:-3px; } input[type='checkbox'] { margin-top:12px; margin-left:-3px; } .ne_pas_imprimer { display: none !important; }";
+		if (protocol_type_is_CERFA)
+		{
+			bloc_HTML_CSS += "@media print { input[type='text']{ margin-top:1px; margin-left:6px; border:none !important; background:transparent !important; } textarea{ border:none !important; background:transparent !important; } select { border:none !important; background:transparent !important; } input[type='checkbox'] { margin-top:9px; margin-left:0px; transform: scale(1.2) !important; } ";
+		}
+		else { bloc_HTML_CSS += "@media print { "; }
+		
+		if (browser_detected == "CHROME")
+		{
+			if (protocol_size_is_landscape)
+			{
+				bloc_HTML_CSS += "@page { size:landscape; margin-top:"+(12.7+correction_marge_top_Chrome)+"mm; margin-bottom:"+(12.7-correction_marge_top_Chrome)+"mm; margin-left: "+(12.7+correction_marge_left_Chrome)+"mm; margin-right: "+(12.7-correction_marge_left_Chrome)+"mm; }  }";
+			}
+			else
+			{
+				bloc_HTML_CSS += "@page { margin-top:"+(12.7+correction_marge_top_Chrome)+"mm; margin-bottom:"+(12.7-correction_marge_top_Chrome)+"mm; margin-left: "+(12.7+correction_marge_left_Chrome)+"mm; margin-right: "+(12.7-correction_marge_left_Chrome)+"mm; }  }";
+			}
+		}
+		else if (browser_detected == "FIREFOX")
+		{
+			if (protocol_size_is_landscape)
+			{
+				bloc_HTML_CSS += "@page { margin-top:"+(12.7+correction_marge_left_Firefox)+"mm; margin-bottom:"+(12.7-correction_marge_left_Firefox)+"mm; margin-left: "+(12.7+correction_marge_top_Firefox)+"mm; margin-right: "+(12.7-correction_marge_top_Firefox)+"mm; }  }";
+			}
+			else
+			{
+				bloc_HTML_CSS += "@page { margin-top:"+(12.7+correction_marge_top_Firefox)+"mm; margin-bottom:"+(12.7-correction_marge_top_Firefox)+"mm; margin-left: "+(12.7+correction_marge_left_Firefox)+"mm; margin-right: "+(12.7-correction_marge_left_Firefox)+"mm; }  }";
+			}
+		}
+		else if (browser_detected == "SAFARI")
+		{
+			//bloc_HTML_CSS += "body ,html { transform:scale(0.95) !important; margin: -9mm 0mm 0mm 5mm !important; } }";
+		}
+	}
+	else // CSS for summary or free print HTML
+	{
+		bloc_HTML_CSS = "<style>";
+		
+		if (browser_detected == "CHROME")
+		{
+			bloc_HTML_CSS += "@media print { @page{ margin:12.7mm; } input[type='checkbox'] { margin-top:2px; margin-left:-3px; } }";
+		}
+		else if (browser_detected == "FIREFOX")
+		{
+			bloc_HTML_CSS += "@media print { @page{ margin:12.7mm; } }";
+		}
+		else if (browser_detected == "SAFARI")
+		{
+		}
+	}
+	
+	// close style
+	bloc_HTML_CSS += "</style>";
+}
+
+// print A4 (only) - landscape or portrait 
+function set_pages_to_print(list_of_pages, document_type)
+{
+	// reset bloc_HTML
+	bloc_HTML = "";
+	
+	if (document_type == "protocol") { bloc_HTML = "<div>"; }
+	
+	var height_page = 273.0;
+	var width_page = 184.6;
+	var transform_rotation = "";
+	
+	for (i = 0; i < list_of_pages.length; i++)
+	{
+		if (browser_detected == "CHROME")
+		{
+			// LANDSCAPE - CHROME
+			if (protocol_size_is_landscape && document_type == "protocol" || summary_size_is_landscape && document_type == "summary")
+			{
+				height_page = 204.0;
+				width_page = 270.0;
+			}
+			else // PORTRAIT - CHROME
+			{
+				if (i+1 == list_of_pages.length) { height_page = 268.0; } // last page must be shorter else > blank page at the end
+			}
+		}	
+		else if (browser_detected == "FIREFOX")
+		{
+			// PORTRAIT - FIREFOX
+			if (i == 0) { height_page = 270.0; }
+			else if (i+1 == list_of_pages.length) {	height_page = 266.0; } // last page must be shorter else > blank page at the 
+			else { height_page = 272.0; }
+			
+			// LANDSCAPE - FIREFOX
+			if (protocol_size_is_landscape && document_type == "protocol" || summary_size_is_landscape && document_type == "summary")
+			{
+				width_page = 270.0;
+				transform_rotation = "transform:rotate(270deg) translate(-270mm, 0mm);transform-origin:0 0;";
+			}
+		}
+		else if (browser_detected == "SAFARI")
+		{
+			// PORTRAIT - SAFARI
+			height_page = 265.0;
+			width_page = 190.0;
+			
+			if (protocol_size_is_landscape && document_type == "protocol" || summary_size_is_landscape && document_type == "summary")
+			{
+				//height_page = 265.0;
+				//width_page = 265.0;
+				transform_rotation = "transform:rotate(270deg) translate(-270mm, 0mm); transform-origin:0 0;";
+			}
+		}
+		
+		// Set parameters to DIVs (pages)
+		if (document_type == "protocol")
+		{
+			// DEBUG //bloc_HTML += "<div class='onglet' style='position:relative;height:"+height_page+"mm;width:184.6mm;margin:0;padding:0;border:none;background:none;background-color:rgb("+get_random_int(256)+","+get_random_int(256)+","+get_random_int(256)+");'>";
+			bloc_HTML += "<div style='position:relative;height:"+height_page+"mm;width:"+width_page+"mm;margin:0;padding:0;border:none;background:none; "+transform_rotation+"'>";
+			bloc_HTML += parse_script_from_HTML_selection($("#"+list_of_pages[i]).html());
+			bloc_HTML += "</div>";
+		}
+		else // Summary or free print
+		{
+			var page_after_break = '';
+			if (browser_detected == "SAFARI" && i+1 != list_of_pages.length) // for SAFARI, all pages except the last one
+			{
+				page_after_break = ' page-break-after:always;';
+			}
+			bloc_HTML += "<style>#"+list_of_pages[i]+"{height:"+height_page+"mm; width:"+width_page+"mm;"+transform_rotation+page_after_break+"}</style>";
+		}
+	}
+	if (document_type == "protocol") { bloc_HTML += "</div>"; }
+}
+
+function print_bloc_HTML(liste_of_pages,title,document_type)
+{
+	set_CSS_media_print(document_type);
+	set_pages_to_print(liste_of_pages, document_type);
+	
+	if (document_type == 'summary') { set_HTML_to_print(); }
+	
+	// open popup
+	var print_windows = window.open("", "", "height=660, width=1000, toolbar=0, menubar=0, scrollbars=0, resizable=0, status=0, location=0, left=100, top=100");
+	
+	// popup param
+	print_windows.document.body.style.color = "#000000";
+	print_windows.document.body.style.backgroundColor = "#FFFFFF";
+	print_windows.document.body.style.padding = "0px";
+	
+	// title of document to print
+	print_windows.document.title = title;
+	
+	print_windows.document.body.innerHTML += bloc_HTML_CSS;
+	print_windows.document.body.innerHTML += bloc_HTML;
+	
+	// print function
+	print_windows.window.print();
+	
+	// close popup >> setTimeout for Chrome and IOS SAFARI compatibility
+	if (browser_detected == "FIREFOX") { print_windows.window.close(); }
+	else { setTimeout(function(){ print_windows.window.close(); }, 5000); }
+	
+	return true;
+}
+
+function parse_script_from_HTML_selection(code_to_parse)
+{
+	var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+	while (SCRIPT_REGEX.test(code_to_parse)) { code_to_parse = code_to_parse.replace(SCRIPT_REGEX, ""); }
+	
+	return code_to_parse;
+}
+
+// DEBUG STUFF //
+function get_random_int(max)
+{
+  return Math.floor(Math.random() * Math.floor(max));
+}
+// DEBUG STUFF //
+
+//  Content of Resume Print test
+function set_HTML_to_print()
+{
+	bloc_HTML += "<div id='sommaire_page_0' style='position:relative;margin:0;padding:0;border:none;background:none;'>";
+	bloc_HTML += "		<div style='position:absolute; z-index:0; top:0px; left:0px; font-size:28px;'>PRINT RESUME :</div>";
+	bloc_HTML += "		<div style='position:absolute; z-index:0; top:35px; left:0px;'><img src='https://5.imimg.com/data5/VY/YV/MY-981566/ok-tested-and-qc-sticker-500x500.jpg' style='' /></div>";
+	bloc_HTML += "</div>";
+}
+</script>
