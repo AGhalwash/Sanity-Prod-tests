@@ -1,4 +1,4 @@
-package com.stacks.bdd.selenium.locator.genomi;
+package com.stacks.bdd.selenium.locator.rms;
 
 import com.stacks.bdd.selenium.locator.core.I18nLocator;
 import com.stacks.bdd.selenium.locator.core.Locator;

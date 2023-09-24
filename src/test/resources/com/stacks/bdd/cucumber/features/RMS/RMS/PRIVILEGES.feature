@@ -7,3 +7,4 @@ Feature: RMS - Check RMS privileges
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
+    When I click on "عميل خارجي" radio button

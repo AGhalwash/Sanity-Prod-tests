@@ -1,7 +1,7 @@
 package com.stacks.bdd.cucumber.stepdefs.genomi;
 
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
-import com.stacks.bdd.selenium.page.genomi.home.HomePage;
+import com.stacks.bdd.selenium.page.rms.HomePage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.apache.log4j.Logger;

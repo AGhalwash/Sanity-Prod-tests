@@ -27,9 +27,9 @@ import java.util.function.Supplier;
 
 
 
-import static com.stacks.bdd.selenium.locator.genomi.LoaderLocator.LOADING;
-import static com.stacks.bdd.selenium.locator.genomi.LoaderLocator.LOADING_DIV;
-import static com.stacks.bdd.selenium.locator.genomi.PDFLocator.*;
+import static com.stacks.bdd.selenium.locator.rms.LoaderLocator.LOADING;
+import static com.stacks.bdd.selenium.locator.rms.LoaderLocator.LOADING_DIV;
+import static com.stacks.bdd.selenium.locator.rms.PDFLocator.*;
 
 
 public final class CustomWebDriver {

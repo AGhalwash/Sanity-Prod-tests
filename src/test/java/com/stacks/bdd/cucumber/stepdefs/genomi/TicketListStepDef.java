@@ -1,10 +1,10 @@
 package com.stacks.bdd.cucumber.stepdefs.genomi;
 
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
-import com.stacks.bdd.selenium.page.genomi.home.HomePage;
-import com.stacks.bdd.selenium.page.genomi.home.TicketListPage;
+import com.stacks.bdd.selenium.page.rms.TicketListPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
+import cucumber.api.java.en.When;
 import org.apache.log4j.Logger;
 
 public class TicketListStepDef {
