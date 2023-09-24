@@ -11,6 +11,13 @@ public enum HomeLocator implements Locator, I18nLocator {
 	PASSWORD_TEXT(By.xpath("//input[@type='password']")),
 	SUBMIT_BUTTON(By.xpath("//*[@type='submit']")),
 
+	// HOME PAGE
+	REPORTS_BUTTON(By.xpath("//*[@id='dropdownMenuButton' and text()=' البلاغات ']")),
+	VIEW_REPORTS_BUTTON(By.xpath("//*[@*='dropdown-item ng-star-inserted' and text()=' عرض البلاغات ']")),
+	ENGLISH_LANGUAGE_BUTTON(By.xpath("//*[@*='button' and text()=' English']")),
+	ARABIC_LANGUAGE_BUTTON(By.xpath("//*[@*='p-menuitem-text' and text()='عربى']"))
+
+
 	;
 
 	String resourceName = "com/stacks/bdd/selenium/locator/home_%s.properties";

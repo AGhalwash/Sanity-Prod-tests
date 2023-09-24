@@ -38,4 +38,17 @@ public class HomePage extends PageObject {
         driver.clickOnAndVerify(SUBMIT_BUTTON.by());
     }
 
+    public void changeLanguageToArabic(){
+       if( Waiter.waitExpectedConditionsVisibilityOf(driver, ENGLISH_LANGUAGE_BUTTON.by(), 2)) {
+           driver.clickOnAndVerify(ENGLISH_LANGUAGE_BUTTON.by(), ARABIC_LANGUAGE_BUTTON.by());
+           driver.clickOnAndVerify(ARABIC_LANGUAGE_BUTTON.by());
+       }
+    }
+    public void openViewReportsPage(){
+        Waiter.waitExpectedConditionsVisibilityOf(driver, REPORTS_BUTTON.by(), 5);
+        driver.clickOnAndVerify(REPORTS_BUTTON.by(),VIEW_REPORTS_BUTTON.by());
+        driver.clickOnAndVerify(VIEW_REPORTS_BUTTON.by());
+        Waiter.sleep(10000);
+    }
+
 }
