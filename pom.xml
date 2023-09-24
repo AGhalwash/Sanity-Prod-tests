@@ -1,0 +1,563 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.stacks.bdd</groupId>
+    <artifactId>RMS-Framework</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>test bdd testing project</name>
+    <description>
+        Project containing all regression and acceptance test of the stacks app.
+        Main tools and frameworks used are:
+        - Selenium - For web browser automation
+        - Cucumber - For test definition
+        - Junit - for the assertions and test
+    </description>
+
+    <profiles>
+        <!-- MLM profile -->
+        <profile>
+            <id>test</id>
+            <build>
+                <filters>
+                    <filter>src/main/filters/test.properties</filter>
+                </filters>
+            </build>
+            <properties>
+                <dataset.dir>test</dataset.dir>
+            </properties>
+        </profile>
+        <!-- Execute test in selenium grid -->
+        <profile>
+            <id>grid</id>
+            <properties>
+                <selenium.grid>true</selenium.grid>
+            </properties>
+        </profile>
+
+        <!-- debug selenium nodes -->
+        <profile>
+            <id>debug</id>
+            <properties>
+                <selenium.grid.debug>true</selenium.grid.debug>
+            </properties>
+        </profile>
+
+        <!-- Execute tests in parallel -->
+        <profile>
+            <id>parallelPlugin</id>
+            <properties>
+                <include.runners>**/Parallel*IT.class</include.runners>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.github.temyers</groupId>
+                        <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                        <version>${cucumberjvmparallelplugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>generateRunners</id>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>generateRunners</goal>
+                                </goals>
+                                <configuration>
+                                    <glue>
+                                        <package>com.stacks.bdd.cucumber.stepdefs</package>
+                                        <package>com.stacks.bdd.cucumber.hooks</package>
+                                    </glue>
+                                    <outputDirectory>${project.build.directory}/generated-test-sources/cucumber
+                                    </outputDirectory>
+                                    <featuresDirectory>src/test/resources/com/stacks/bdd/cucumber/features
+                                    </featuresDirectory>
+                                    <cucumberOutputDir>${project.build.directory}/cucumber-parallel</cucumberOutputDir>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Skip the liquibase execution -->
+        <!-- this is hopefully temporary and is needed because of connectivity
+             issues between iswfdafj01 (jenkins) and swfdcskh001 (oracle). we want the
+             project to be compiled each PR is filed.
+             see http://iswfdafj01.cegedim.clt:8080/view/Genomi/job/swf-bdd-genomi-develop-sonar/ -->
+        <profile>
+            <id>no-liquibase</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.liquibase</groupId>
+                        <artifactId>liquibase-maven-plugin</artifactId>
+                        <version>${liquibase-maven-plugin-version}</version>
+                        <executions>
+                            <execution>
+                                <id>before-dataset</id>
+                                <phase>none</phase>
+                            </execution>
+                            <execution>
+                                <id>after-dataset</id>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- Skip the dataset execution -->
+        <profile>
+            <id>no-dataset</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>exec-maven-plugin</artifactId>
+                        <version>1.6.0</version>
+                        <executions>
+                            <execution>
+                                <phase>none</phase>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+    <properties>
+        <!-- Standard project properties, used to compile the project -->
+        <project.mavencompiler.version>3.7.0</project.mavencompiler.version>
+        <project.java.version>1.8</project.java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- Test related properties -->
+        <cucumber.version>1.2.6</cucumber.version>
+        <cucumberjvmparallelplugin.version>5.0.0</cucumberjvmparallelplugin.version>
+        <maven-cucumber-reporting.version>3.15.0</maven-cucumber-reporting.version>
+        <junit.version>4.13.2</junit.version>
+        <mavensurefire.version>2.20</mavensurefire.version>
+        <log4j-version>2.19.0</log4j-version>
+        <liquibase-maven-plugin-version>4.14.0</liquibase-maven-plugin-version>
+        <ojdbc8.version>19.6.0.0</ojdbc8.version>
+        <selenium.version>4.6.0</selenium.version>
+        <cluecumber-report-plugin>2.9.2</cluecumber-report-plugin>
+        <exec-maven-plugin>1.6.0</exec-maven-plugin>
+        <cluecumber-report-plugin.version>2.9.4</cluecumber-report-plugin.version>
+
+        <!-- plugin configuration -->
+        <cucumberjvmparallelplugin.parallelScheme>FEATURE</cucumberjvmparallelplugin.parallelScheme>
+        <mavensurefire.forkedProcessTimeoutInSeconds>300</mavensurefire.forkedProcessTimeoutInSeconds>
+        <surefire.forkNumber>1</surefire.forkNumber>
+    </properties>
+
+    <build>
+        <!-- Copy the project resources to target -->
+        <resources>
+            <!-- Copy the resources files, excluding dataset ones -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <excludes>
+                    <exclude>dataset/**</exclude>
+                </excludes>
+                <filtering>true</filtering>
+            </resource>
+            <!-- Copy the dataset csv files -->
+            <resource>
+                <directory>src/main/resources/dataset/${dataset.dir}</directory>
+                <targetPath>dataset</targetPath>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <!-- Standard Maven compiler -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${project.mavencompiler.version}</version>
+                <configuration>
+                    <source>${project.java.version}</source>
+                    <target>${project.java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+
+
+                    <plugin>
+                        <groupId>io.qameta.allure</groupId>
+                        <artifactId>allure-maven</artifactId>
+                        <version>2.12.0</version>
+                        <configuration>
+                            <reportVersion>2.8</reportVersion> <!-- Adjust version as needed -->
+                            <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+                        </configuration>
+                    </plugin>
+
+            <!-- Standard Maven Surefire plugin configured to run tests in parallel -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${mavensurefire.version}</version>
+                <configuration>
+                    <useSystemClassLoader>false</useSystemClassLoader>
+                    <forkCount>${surefire.forkNumber}</forkCount>
+                    <reuseForks>false</reuseForks>
+                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+                    <includes>
+                        <include>**/*IT.class</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <!-- Cucumber JVM Parallel plugin -->
+            <plugin>
+                <groupId>com.github.temyers</groupId>
+                <artifactId>cucumber-jvm-parallel-plugin</artifactId>
+                <version>${cucumberjvmparallelplugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>generateRunners</id>
+                        <phase>generate-test-sources</phase>
+                        <goals>
+                            <goal>generateRunners</goal>
+                        </goals>
+                        <configuration>
+                            <glue>
+                                <package>com.stacks.bdd.cucumber.stepdefs</package>
+                                <package>com.stacks.bdd.cucumber.hooks</package>
+                            </glue>
+                            <outputDirectory>${project.build.directory}/generated-test-sources/cucumber</outputDirectory>
+                            <featuresDirectory>src/test/resources/com/stacks/bdd/cucumber/features</featuresDirectory>
+                            <cucumberOutputDir>${project.build.directory}/cucumber-parallel</cucumberOutputDir>
+                            <plugins>
+                                <plugin>
+                                    <name>json</name>
+                                    <extension>json</extension>
+                                    <outputDirectory>${project.build.directory}/cucumber-parallel/json</outputDirectory>
+                                </plugin>
+                                <plugin>
+                                    <name>html</name>
+                                    <outputDirectory>${project.build.directory}/cucumber-parallel/html</outputDirectory>
+                                </plugin>
+                            </plugins>
+                            <parallelScheme>${cucumberjvmparallelplugin.parallelScheme}</parallelScheme>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- Cluecumber Report Plugin -->
+            <plugin>
+                <groupId>com.trivago.rta</groupId>
+                <artifactId>cluecumber-report-plugin</artifactId>
+                <version>2.9.4</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>reporting</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceJsonReportDirectory>${project.build.directory}/cucumber-parallel</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}/generated-report</generatedHtmlReportDirectory>
+                </configuration>
+            </plugin>
+
+            <!-- Exec Maven Plugin to execute dataset -->
+<!--            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin}</version>
+                <executions>
+                    <execution>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>java</executable>
+                    <arguments>
+                        <argument>-classpath</argument>
+                        &lt;!&ndash; Automatically creates the classpath using all project dependencies,
+                            also adding the project build directory &ndash;&gt;
+                        <classpath/>
+                        <argument>com.stacks.bdd.dataset.starter.DatasetStarter</argument>
+                    </arguments>
+                </configuration>
+            </plugin>-->
+
+            <!-- Liquibase plugin -->
+         <!--   <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <version>${liquibase-maven-plugin-version}</version>
+                <configuration>
+                    <propertyFileWillOverride>true</propertyFileWillOverride>
+                    <propertyFile>target/classes/liquibase/liquibase.properties</propertyFile>
+                    <promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>before-dataset</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <propertyFile>target/classes/liquibase/liquibase.properties</propertyFile>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>after-dataset</id>
+                        <phase>process-test-classes</phase>
+                        <goals>
+                            <goal>update</goal>
+                        </goals>
+                        <configuration>
+                            <propertyFile>target/classes/liquibase/second-liquibase.properties</propertyFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>-->
+        </plugins>
+
+    </build>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+        <!-- Extent Report dependencies -->
+        <dependency>
+            <groupId>com.vimalselvam</groupId>
+            <artifactId>cucumber-extentsreport</artifactId>
+            <version>3.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.9</version>
+        </dependency>
+        <!-- Cucumber dependencies -->
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+
+
+        <!-- jUnit dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.0</version>
+        </dependency>
+
+        <!-- Selenium dependencies -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+
+
+        <!-- Pretty format for the reports -->
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>maven-cucumber-reporting</artifactId>
+            <version>${maven-cucumber-reporting.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4j-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.oracle.database.jdbc</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <version>${ojdbc8.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk16</artifactId>
+            <version>1.46</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20220924</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.9.0</version>
+        </dependency>
+
+        <!--     <dependency>
+                 <groupId>org.apache.pdfbox</groupId>
+                 <artifactId>pdfbox</artifactId>
+                 <version>2.0.11</version>
+             </dependency>-->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>1.1.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <!-- Java email API -->
+        <dependency>
+            <groupId>com.microsoft.ews-java-api</groupId>
+            <artifactId>ews-java-api</artifactId>
+            <version>2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.4.2.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured-all</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.0.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-path</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>4.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-model-infinispan</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-services</artifactId>
+            <version>7.0.1</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jboss-servlet-api_3.0_spec</artifactId>
+                    <groupId>org.jboss.spec.javax.servlet</groupId>
+                </exclusion>
+
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-authz-client</artifactId>
+            <version>7.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-model-jpa</artifactId>
+            <version>9.0.2</version>
+        </dependency>
+    </dependencies>
+
+</project>
+
