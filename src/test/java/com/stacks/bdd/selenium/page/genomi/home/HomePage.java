@@ -48,7 +48,6 @@ public class HomePage extends PageObject {
         Waiter.waitExpectedConditionsVisibilityOf(driver, REPORTS_BUTTON.by(), 5);
         driver.clickOnAndVerify(REPORTS_BUTTON.by(),VIEW_REPORTS_BUTTON.by());
         driver.clickOnAndVerify(VIEW_REPORTS_BUTTON.by());
-        Waiter.sleep(10000);
     }
 
 }

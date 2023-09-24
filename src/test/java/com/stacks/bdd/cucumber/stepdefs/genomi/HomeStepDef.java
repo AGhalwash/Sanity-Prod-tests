@@ -26,17 +26,17 @@ public class HomeStepDef {
 		homePage.loginToRMS(user);
 	}
 
-	@And("^I open View reports page$")
-	public void iOpenViewReportsPage() {
-		logger.trace("I open View reports page");
-		HomePage homePage = new HomePage(state.getDriver());
-		homePage.openViewReportsPage();
-	}
-
 	@And("^I change language to Arabic$")
 	public void iChangeLanguageToArabic() {
 		logger.trace("I change language to Arabic");
 		HomePage homePage = new HomePage(state.getDriver());
 		homePage.changeLanguageToArabic();
+	}
+
+	@And("^I open View reports page$")
+	public void iOpenViewReportsPage() {
+		logger.trace("I open View reports page");
+		HomePage homePage = new HomePage(state.getDriver());
+		homePage.openViewReportsPage();
 	}
 }

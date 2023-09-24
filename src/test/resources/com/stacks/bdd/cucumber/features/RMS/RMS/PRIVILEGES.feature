@@ -6,3 +6,4 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Normal user"
     And I change language to Arabic
     And I open View reports page
+    And I open add ticket to call center page
