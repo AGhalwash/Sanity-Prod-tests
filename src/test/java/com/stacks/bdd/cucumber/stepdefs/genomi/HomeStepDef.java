@@ -39,4 +39,11 @@ public class HomeStepDef {
 		HomePage homePage = new HomePage(state.getDriver());
 		homePage.openViewReportsPage();
 	}
+
+	@And("^I open Authorization View Page page$")
+	public void iOpenAuthorizationViewPagePage() {
+		logger.trace("I open Authorization View Page page");
+		HomePage homePage = new HomePage(state.getDriver());
+		homePage.openAuthorizationViewPage();
+	}
 }

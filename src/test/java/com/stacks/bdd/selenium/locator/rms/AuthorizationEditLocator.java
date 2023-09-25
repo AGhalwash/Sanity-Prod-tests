@@ -4,13 +4,13 @@ import com.stacks.bdd.selenium.locator.core.I18nLocator;
 import com.stacks.bdd.selenium.locator.core.Locator;
 import org.openqa.selenium.By;
 
-public enum AddTicketLocator implements Locator, I18nLocator {
+public enum AuthorizationEditLocator implements Locator, I18nLocator {
 
-	CHECK_CLIENT_TYPE_RADIO_BUTTON("checked.client.type.radio.button"),
-	UNCHECK_CLIENT_TYPE_RADIO_BUTTON("unchecked.client.type.radio.button"),
-	TICKET_TYPE_RADIO_BUTTON("ticket.type.radio.button"),
-	LOADER_ICON(By.xpath("//img[@class='loader-img']"))
-
+	ROLE_POWER_ARROW_BUTTON_CLOSED("role.power.arrow.button.closed"),
+	ROLE_POWER_ARROW_BUTTON_OPENED("role.power.arrow.button.opened"),
+	ROLE_POWER_CHECKBOX_CHECKED("role.power.checkbox.checked"),
+	ROLE_POWER_CHECKBOX_UNCHECKED("role.power.checkbox.unchecked"),
+	SAVE_BUTTON(By.xpath("//button[contains(@type, 'submit')]"))
 	;
 
 	String resourceName = "com/stacks/bdd/selenium/locator/home_%s.properties";
@@ -19,12 +19,12 @@ public enum AddTicketLocator implements Locator, I18nLocator {
 	private String key;
 	private String description;
 
-	AddTicketLocator(By locator) {
+	AuthorizationEditLocator(By locator) {
 		this.description = description;
 		this.locator = locator;
 	}
 
-	AddTicketLocator(String key) {
+	AuthorizationEditLocator(String key) {
 		this.key = key;
 		this.locator = By.xpath(this.getSelector());
 	}

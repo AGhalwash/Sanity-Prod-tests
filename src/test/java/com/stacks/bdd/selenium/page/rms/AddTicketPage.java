@@ -17,7 +17,19 @@ public class AddTicketPage extends PageObject {
     public void selectClientType(String type) {
        if (!Waiter.waitExpectedConditionsVisibilityOf(driver,CHECK_CLIENT_TYPE_RADIO_BUTTON.by(type),3)){
         driver.clickOnAndVerify(UNCHECK_CLIENT_TYPE_RADIO_BUTTON.by(type),CHECK_CLIENT_TYPE_RADIO_BUTTON.by(type));
+        Waiter.waitForDisappearanceElements(driver,LOADER_ICON.by(),5);
        }
-       Waiter.sleep(9000);
+    }
+
+    public boolean checkFourRadioButtons(String button1, String button2, String button3, String button4){
+        boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver,TICKET_TYPE_RADIO_BUTTON.by(button1),2);
+        boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver,TICKET_TYPE_RADIO_BUTTON.by(button2),2);
+        boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver,TICKET_TYPE_RADIO_BUTTON.by(button3),2);
+        boolean condition4 = Waiter.waitExpectedConditionsVisibilityOf(driver,TICKET_TYPE_RADIO_BUTTON.by(button4),2);
+        return (condition1 && condition2 && condition3 && condition4);
+    }
+
+    public boolean checkOneRadioButton(String button){
+        return  Waiter.waitExpectedConditionsVisibilityOf(driver,TICKET_TYPE_RADIO_BUTTON.by(button),2);
     }
 }

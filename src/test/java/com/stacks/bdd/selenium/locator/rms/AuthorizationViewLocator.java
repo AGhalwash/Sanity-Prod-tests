@@ -4,12 +4,9 @@ import com.stacks.bdd.selenium.locator.core.I18nLocator;
 import com.stacks.bdd.selenium.locator.core.Locator;
 import org.openqa.selenium.By;
 
-public enum AddTicketLocator implements Locator, I18nLocator {
+public enum AuthorizationViewLocator implements Locator, I18nLocator {
 
-	CHECK_CLIENT_TYPE_RADIO_BUTTON("checked.client.type.radio.button"),
-	UNCHECK_CLIENT_TYPE_RADIO_BUTTON("unchecked.client.type.radio.button"),
-	TICKET_TYPE_RADIO_BUTTON("ticket.type.radio.button"),
-	LOADER_ICON(By.xpath("//img[@class='loader-img']"))
+	ROLE_EDIT_BUTTON("role.edit.button")
 
 	;
 
@@ -19,12 +16,12 @@ public enum AddTicketLocator implements Locator, I18nLocator {
 	private String key;
 	private String description;
 
-	AddTicketLocator(By locator) {
+	AuthorizationViewLocator(By locator) {
 		this.description = description;
 		this.locator = locator;
 	}
 
-	AddTicketLocator(String key) {
+	AuthorizationViewLocator(String key) {
 		this.key = key;
 		this.locator = By.xpath(this.getSelector());
 	}
