@@ -1,4 +1,4 @@
-package com.stacks.bdd.selenium.page.genomi.home;
+package com.stacks.bdd.selenium.page.rms;
 
 import com.stacks.bdd.constants.core.Constants;
 import com.stacks.bdd.constants.core.SystemProperties;
@@ -6,7 +6,7 @@ import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.PageObject;
 import com.stacks.bdd.selenium.driver.core.Waiter;
 
-import static com.stacks.bdd.selenium.locator.genomi.HomeLocator.*;
+import static com.stacks.bdd.selenium.locator.rms.HomeLocator.*;
 
 
 public class HomePage extends PageObject {
@@ -48,7 +48,11 @@ public class HomePage extends PageObject {
         Waiter.waitExpectedConditionsVisibilityOf(driver, REPORTS_BUTTON.by(), 5);
         driver.clickOnAndVerify(REPORTS_BUTTON.by(),VIEW_REPORTS_BUTTON.by());
         driver.clickOnAndVerify(VIEW_REPORTS_BUTTON.by());
-        Waiter.sleep(10000);
     }
 
+    public void openAuthorizationViewPage(){
+        Waiter.waitExpectedConditionsVisibilityOf(driver, SETTINGS_BUTTON.by(), 5);
+        driver.clickOnAndVerify(SETTINGS_BUTTON.by(),VIEW_AUTHORIZATION_VIEW_BUTTON.by());
+        driver.clickOnAndVerify(VIEW_AUTHORIZATION_VIEW_BUTTON.by());
+    }
 }

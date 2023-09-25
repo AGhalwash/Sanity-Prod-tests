@@ -1,7 +1,7 @@
 package com.stacks.bdd.cucumber.stepdefs.genomi;
 
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
-import com.stacks.bdd.selenium.page.genomi.home.HomePage;
+import com.stacks.bdd.selenium.page.rms.HomePage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import org.apache.log4j.Logger;
@@ -26,6 +26,13 @@ public class HomeStepDef {
 		homePage.loginToRMS(user);
 	}
 
+	@And("^I change language to Arabic$")
+	public void iChangeLanguageToArabic() {
+		logger.trace("I change language to Arabic");
+		HomePage homePage = new HomePage(state.getDriver());
+		homePage.changeLanguageToArabic();
+	}
+
 	@And("^I open View reports page$")
 	public void iOpenViewReportsPage() {
 		logger.trace("I open View reports page");
@@ -33,10 +40,10 @@ public class HomeStepDef {
 		homePage.openViewReportsPage();
 	}
 
-	@And("^I change language to Arabic$")
-	public void iChangeLanguageToArabic() {
-		logger.trace("I change language to Arabic");
+	@And("^I open Authorization View Page page$")
+	public void iOpenAuthorizationViewPagePage() {
+		logger.trace("I open Authorization View Page page");
 		HomePage homePage = new HomePage(state.getDriver());
-		homePage.changeLanguageToArabic();
+		homePage.openAuthorizationViewPage();
 	}
 }

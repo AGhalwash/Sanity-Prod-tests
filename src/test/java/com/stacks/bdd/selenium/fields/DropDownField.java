@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.Waiter;
 
-import static com.stacks.bdd.selenium.locator.genomi.LoaderLocator.LOADING;
+import static com.stacks.bdd.selenium.locator.rms.LoaderLocator.LOADING;
 
 public class DropDownField extends AbstractField {
 	

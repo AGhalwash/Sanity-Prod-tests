@@ -1,4 +1,4 @@
-package com.stacks.bdd.selenium.page.genomi.home;
+package com.stacks.bdd.selenium.page.rms;
 
 import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.PageObject;
@@ -10,7 +10,7 @@ import org.openqa.selenium.TimeoutException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static com.stacks.bdd.selenium.locator.genomi.LoaderLocator.*;
+import static com.stacks.bdd.selenium.locator.rms.LoaderLocator.*;
 
 public class LoggedPage extends PageObject {
     protected boolean newLF;
