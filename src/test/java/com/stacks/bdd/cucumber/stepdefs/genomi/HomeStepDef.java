@@ -46,4 +46,11 @@ public class HomeStepDef {
 		HomePage homePage = new HomePage(state.getDriver());
 		homePage.openAuthorizationViewPage();
 	}
+
+	@And("^I log out from RMS$")
+	public void iLogOutFromRMS() {
+		logger.trace("I log out from RMS");
+		HomePage homePage = new HomePage(state.getDriver());
+		homePage.logOut();
+	}
 }

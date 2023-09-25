@@ -17,7 +17,11 @@ public enum HomeLocator implements Locator, I18nLocator {
 	VIEW_REPORTS_BUTTON(By.xpath("//*[@*='dropdown-item ng-star-inserted' and text()=' عرض البلاغات ']")),
 	VIEW_AUTHORIZATION_VIEW_BUTTON(By.xpath("//*[@*='dropdown-item ng-star-inserted' and text()='  الأدوار ']")),
 	ENGLISH_LANGUAGE_BUTTON(By.xpath("//*[@*='button' and text()=' English']")),
-	ARABIC_LANGUAGE_BUTTON(By.xpath("//*[@*='p-menuitem-text' and text()='عربى']"))
+	ARABIC_LANGUAGE_BUTTON(By.xpath("//*[@*='p-menuitem-text' and text()='عربى']")),
+
+	LOG_OUT_ARROW_BUTTON(By.xpath("//img[@src='assets/images/navBar/user.png']/following-sibling::i[@class='cursor-pointer fa fa-chevron-down']")),
+	LOG_OUT_BUTTON(By.xpath("//*[@*='p-menuitem-text' and text()='تسجيل الخروج']")),
+
 
 
 	;
