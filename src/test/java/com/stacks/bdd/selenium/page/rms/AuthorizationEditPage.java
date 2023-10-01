@@ -25,17 +25,15 @@ public class AuthorizationEditPage extends PageObject {
     public void checkPowerCheckbox(String status,String power){
         switch (status) {
             case "check":
-             if( Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_CHECKBOX_UNCHECKED.by(power),5)) {
+             if( Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_CHECKBOX_UNCHECKED.by(power),10)) {
                 driver.scrollToElement(ROLE_POWER_CHECKBOX_UNCHECKED.by(power));
-                 driver.clickOnAndVerify(ROLE_POWER_CHECKBOX_UNCHECKED.by(power), ROLE_POWER_CHECKBOX_CHECKED.by(power));
+                 driver.clickOnAndVerify(ROLE_POWER_CHECKBOX_UNCHECKED.by(power),ROLE_POWER_CHECKBOX_CHECKED.by(power));
             }
                 break;
             case "uncheck":
                 if(Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_CHECKBOX_CHECKED.by(power),2)) {
-                    driver.clickOn(ROLE_POWER_CHECKBOX_CHECKED.by(power));
-                }
-                if(Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_CHECKBOX_CHECKED.by(power),2)) {
-                    driver.clickOn(ROLE_POWER_CHECKBOX_CHECKED.by(power));
+                    driver.scrollToElement(ROLE_POWER_CHECKBOX_CHECKED.by(power));
+                    driver.clickOnAndVerify(ROLE_POWER_CHECKBOX_CHECKED.by(power),ROLE_POWER_CHECKBOX_UNCHECKED.by(power));
                 }
                 break;
             default:
@@ -49,9 +47,6 @@ public class AuthorizationEditPage extends PageObject {
         driver.clickOn(SAVE_BUTTON.by());
         if(Waiter.waitExpectedConditionsVisibilityOf(driver,ACCEPT_CONFIRMATION_POP_UP.by(),5)){
             driver.clickOnAndVerify(ACCEPT_CONFIRMATION_POP_UP.by());
-        }
-        if(Waiter.waitExpectedConditionsVisibilityOf(driver,SAVE_BUTTON.by(),5)){
-            driver.clickOnAndVerify(SAVE_BUTTON.by());
         }
 
     }

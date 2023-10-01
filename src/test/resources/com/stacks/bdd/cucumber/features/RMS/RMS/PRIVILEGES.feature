@@ -5,14 +5,16 @@ Feature: RMS - Check RMS privileges
   Scenario: RMS - Check call center added privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
+    And I refresh page
     And I open Authorization View Page page
     And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
-    And I check " إضافة تذكرة بلاغ  " power checkbox
+    And I check "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
+    And I refresh page
     And I open View reports page
     And I open add ticket to call center page
     When I click on "ولي أمر" radio button
@@ -30,6 +32,7 @@ Feature: RMS - Check RMS privileges
   Scenario: RMS - Check call center removed privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
+    And I refresh page
     And I open Authorization View Page page
     And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
@@ -38,6 +41,7 @@ Feature: RMS - Check RMS privileges
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
+    And I refresh page
     When I open View reports page
     Then I don't find add ticket button
 

@@ -53,4 +53,10 @@ public class HomeStepDef {
 		HomePage homePage = new HomePage(state.getDriver());
 		homePage.logOut();
 	}
+
+	@And("^I refresh page$")
+	public void iRefreshPage() {
+		logger.trace("I refresh page");
+		state.getDriver().refreshPage();
+	}
 }
