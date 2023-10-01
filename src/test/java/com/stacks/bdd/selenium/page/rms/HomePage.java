@@ -38,6 +38,13 @@ public class HomePage extends PageObject {
         driver.clickOnAndVerify(SUBMIT_BUTTON.by());
     }
 
+    public void logOut(){
+        Waiter.waitExpectedConditionsVisibilityOf(driver,LOG_OUT_ARROW_BUTTON.by(),2);
+        driver.clickOn(LOG_OUT_ARROW_BUTTON.by());
+        Waiter.waitExpectedConditionsVisibilityOf(driver,LOG_OUT_BUTTON.by(),2);
+        driver.clickOnAndVerify(LOG_OUT_BUTTON.by(),USER_TEXT.by());
+    }
+
     public void changeLanguageToArabic(){
        if( Waiter.waitExpectedConditionsVisibilityOf(driver, ENGLISH_LANGUAGE_BUTTON.by(), 2)) {
            driver.clickOnAndVerify(ENGLISH_LANGUAGE_BUTTON.by(), ARABIC_LANGUAGE_BUTTON.by());

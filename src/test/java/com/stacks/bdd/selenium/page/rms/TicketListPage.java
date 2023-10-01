@@ -17,4 +17,8 @@ public class TicketListPage extends PageObject {
         Waiter.waitExpectedConditionsVisibilityOf(driver,ADD_TICKET_TO_CALL_CENTER_BUTTON.by(), 2);
         driver.clickOnAndVerify(ADD_TICKET_TO_CALL_CENTER_BUTTON.by());
     }
+
+    public boolean checkAddTicketButton(){
+        return Waiter.waitExpectedConditionsVisibilityOf(driver,ADD_TICKET_TO_CALL_CENTER_BUTTON.by(), 2);
+    }
 }

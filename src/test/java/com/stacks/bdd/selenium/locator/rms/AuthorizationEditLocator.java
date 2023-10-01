@@ -10,7 +10,10 @@ public enum AuthorizationEditLocator implements Locator, I18nLocator {
 	ROLE_POWER_ARROW_BUTTON_OPENED("role.power.arrow.button.opened"),
 	ROLE_POWER_CHECKBOX_CHECKED("role.power.checkbox.checked"),
 	ROLE_POWER_CHECKBOX_UNCHECKED("role.power.checkbox.unchecked"),
-	SAVE_BUTTON(By.xpath("//button[contains(@type, 'submit')]"))
+
+	SAVE_BUTTON(By.xpath("//button[contains(@type, 'submit')]")),
+
+	ACCEPT_CONFIRMATION_POP_UP(By.xpath("//span[contains(text(), 'موافق')]"))
 	;
 
 	String resourceName = "com/stacks/bdd/selenium/locator/home_%s.properties";

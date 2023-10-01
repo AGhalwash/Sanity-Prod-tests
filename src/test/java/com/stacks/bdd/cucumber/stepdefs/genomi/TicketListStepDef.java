@@ -4,8 +4,10 @@ import com.stacks.bdd.cucumber.runner.CucumberTestState;
 import com.stacks.bdd.selenium.page.rms.TicketListPage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 
 public class TicketListStepDef {
 	private static Logger logger = Logger.getLogger(TicketListStepDef.class.getName());
@@ -26,4 +28,10 @@ public class TicketListStepDef {
 		ticketListPage.openAddTicketPage();
 	}
 
+	@Then("^I don't find add ticket button$")
+	public void iDonTFindAddTicketButton() {
+		logger.trace("I don't find add ticket button");
+		TicketListPage ticketListPage = new TicketListPage(state.getDriver());
+		Assert.assertFalse("Add ticket button appeared", ticketListPage.checkAddTicketButton());
+	}
 }
