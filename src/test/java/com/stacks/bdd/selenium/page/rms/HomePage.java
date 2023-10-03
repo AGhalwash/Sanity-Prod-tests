@@ -41,8 +41,12 @@ public class HomePage extends PageObject {
     public void logOut(){
         Waiter.waitExpectedConditionsVisibilityOf(driver,LOG_OUT_ARROW_BUTTON.by(),2);
         driver.clickOn(LOG_OUT_ARROW_BUTTON.by());
-        Waiter.waitExpectedConditionsVisibilityOf(driver,LOG_OUT_BUTTON.by(),2);
-        driver.clickOnAndVerify(LOG_OUT_BUTTON.by(),USER_TEXT.by());
+        if(Waiter.waitExpectedConditionsVisibilityOf(driver,LOG_OUT_BUTTON.by(),2)) {
+            driver.clickOnAndVerify(LOG_OUT_BUTTON.by(), USER_TEXT.by());
+        }
+        if(Waiter.waitExpectedConditionsVisibilityOf(driver,LOG_OUT_BUTTON_ENGLISH.by(),2)) {
+            driver.clickOnAndVerify(LOG_OUT_BUTTON_ENGLISH.by(), USER_TEXT.by());
+        }
     }
 
     public void changeLanguageToArabic(){

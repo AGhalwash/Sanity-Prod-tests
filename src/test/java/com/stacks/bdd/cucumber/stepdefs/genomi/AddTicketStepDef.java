@@ -30,7 +30,6 @@ public class AddTicketStepDef {
 		logger.trace("I click on " + type + "radio button");
 		AddTicketPage addTicketPage = new AddTicketPage(state.getDriver());
 		addTicketPage.selectClientType(type);
-		Waiter.sleep(9000);
 	}
 
 	@Then("^I find \"([^\"]*)\" & \"([^\"]*)\" & \"([^\"]*)\" & \"([^\"]*)\" radio buttons$")
@@ -53,6 +52,38 @@ public class AddTicketStepDef {
 				break;
 			default:
 				throw new IllegalArgumentException(button + Constants.NOT_FOUND);
+		}
+	}
+
+	@And("^I open \"([^\"]*)\" list$")
+	public void iOpenList(String list) {
+		logger.trace("I open " +  list);
+		AddTicketPage addTicketPage = new AddTicketPage(state.getDriver());
+		addTicketPage.openDropdownList(list);
+	}
+
+	@Then("^I find \"([^\"]*)\" branch name$")
+	public void iFindBranchName(String branch) {
+		logger.trace("I find " + branch + "branch name");
+		AddTicketPage addTicketPage = new AddTicketPage(state.getDriver());
+		Assert.assertTrue("Branch name is not displayed",addTicketPage.checkBranchName(branch));
+		Assert.assertTrue("I find all branches names",addTicketPage.unwantedValues());
+
+	}
+
+	@And("^I (do|don't) find all branches$")
+	public void iDoFindAllBranches(String status) {
+		logger.trace("I "+ status + "find all branches");
+		AddTicketPage addTicketPage = new AddTicketPage(state.getDriver());
+		switch (status) {
+			case "do":
+				Assert.assertFalse("I find all branches names",addTicketPage.unwantedValues());
+				break;
+			case "don't":
+				Assert.assertTrue("I did not find all branches names",addTicketPage.unwantedValues());
+				break;
+			default:
+				throw new IllegalArgumentException(status + Constants.NOT_FOUND);
 		}
 	}
 }

@@ -17,9 +17,21 @@ public class AuthorizationEditPage extends PageObject {
     }
 
 
-    public void openPowerArrow(String power){
-        Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_ARROW_BUTTON_CLOSED.by(power),3);
-        driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_CLOSED.by(power), ROLE_POWER_ARROW_BUTTON_OPENED.by(power));
+    public void actionOnPowerArrow(String status,String power){
+        switch (status) {
+            case "open":
+                if( Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_ARROW_BUTTON_CLOSED.by(power),10)) {
+                    driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_CLOSED.by(power), ROLE_POWER_ARROW_BUTTON_OPENED.by(power));
+                }
+                break;
+            case "close":
+                if( Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_ARROW_BUTTON_OPENED.by(power),10)) {
+                    driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_OPENED.by(power), ROLE_POWER_ARROW_BUTTON_CLOSED.by(power));
+                }
+                break;
+            default:
+                throw new IllegalArgumentException(power + Constants.NOT_FOUND);
+        }
     }
 
     public void checkPowerCheckbox(String status,String power){
@@ -31,7 +43,7 @@ public class AuthorizationEditPage extends PageObject {
             }
                 break;
             case "uncheck":
-                if(Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_CHECKBOX_CHECKED.by(power),2)) {
+                if(Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_CHECKBOX_CHECKED.by(power),10)) {
                     driver.scrollToElement(ROLE_POWER_CHECKBOX_CHECKED.by(power));
                     driver.clickOnAndVerify(ROLE_POWER_CHECKBOX_CHECKED.by(power),ROLE_POWER_CHECKBOX_UNCHECKED.by(power));
                 }

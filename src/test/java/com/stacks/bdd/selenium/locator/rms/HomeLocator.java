@@ -21,6 +21,7 @@ public enum HomeLocator implements Locator, I18nLocator {
 
 	LOG_OUT_ARROW_BUTTON(By.xpath("//img[@src='assets/images/navBar/user.png']/following-sibling::i[@class='cursor-pointer fa fa-chevron-down']")),
 	LOG_OUT_BUTTON(By.xpath("//*[@*='p-menuitem-text' and text()='تسجيل الخروج']")),
+	LOG_OUT_BUTTON_ENGLISH(By.xpath("//*[@*='p-menuitem-text' and text()='logout']")),
 
 
 

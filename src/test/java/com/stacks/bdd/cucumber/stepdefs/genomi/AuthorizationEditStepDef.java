@@ -20,11 +20,11 @@ public class AuthorizationEditStepDef {
     }
 
 
-    @And("^I open \"([^\"]*)\" power arrow button$")
-    public void iOpenPowerArrowButton(String power)  {
+    @And("^I (open|close) \"([^\"]*)\" power arrow button$")
+    public void iOpenPowerArrowButton(String status, String power)  {
         logger.trace("I open" + power + "power arrow button");
         AuthorizationEditPage authorizationEditPage = new AuthorizationEditPage(state.getDriver());
-        authorizationEditPage.openPowerArrow(power);
+        authorizationEditPage.actionOnPowerArrow(status, power);
     }
 
     @And("^I (check|uncheck) \"([^\"]*)\" power checkbox$")

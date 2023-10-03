@@ -3,6 +3,10 @@ package com.stacks.bdd.selenium.page.rms;
 import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.PageObject;
 import com.stacks.bdd.selenium.driver.core.Waiter;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static com.stacks.bdd.selenium.locator.rms.AddTicketLocator.*;
 
@@ -31,5 +35,43 @@ public class AddTicketPage extends PageObject {
 
     public boolean checkOneRadioButton(String button){
         return  Waiter.waitExpectedConditionsVisibilityOf(driver,TICKET_TYPE_RADIO_BUTTON.by(button),2);
+    }
+
+    public void openDropdownList(String list){
+        Waiter.waitExpectedConditionsVisibilityOf(driver,DROP_DOWN_LIST.by(list),5);
+        driver.clickOn(DROP_DOWN_LIST.by(list));
+    }
+
+    public boolean checkBranchName(String branch){
+        return Waiter.waitExpectedConditionsVisibilityOf(driver,DROP_DOWN_LIST_ITEM.by(branch),5);
+    }
+
+    public boolean unwantedValues(){
+        String[] unwantedValues = { "نمار", "المعيزلية", "سكن الرياض 3", "جازان", "الإدارة العامة","الطائف","سكن خميس مشيط 1","الاحساء","وادي الدواسر ","سكن الرياض 1"};
+
+
+        // Define the locator for the list of elements (modify as needed)
+        By elementLocator = By.cssSelector("div span.ng-option-label");
+
+        // Call the assertListDoesNotContainValues function
+        return assertListDoesNotContainValues( elementLocator, unwantedValues);
+    }
+    public boolean assertListDoesNotContainValues(By elementLocator, String[] unwantedValues) {
+        // Find the list of elements
+        List<WebElement> elements = driver.findElements(elementLocator);
+
+        for (WebElement element : elements) {
+            // Get the text of the element
+            String elementText = element.getText().trim();
+            for (String unwantedValue : unwantedValues) {
+                // Check if the element text contains unwanted value
+                if (elementText.contains(unwantedValue)) {
+                    // Assertion failed, the list contains an unwanted value
+                    return false;
+                }
+            }
+        }
+        // Assertion passed, the list does not contain any unwanted values
+        return true;
     }
 }

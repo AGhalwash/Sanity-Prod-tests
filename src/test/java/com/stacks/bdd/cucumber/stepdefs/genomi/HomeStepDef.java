@@ -21,7 +21,7 @@ public class HomeStepDef {
 
 	@Given("^I Login to RMS With \"([^\"]*)\"$")
 	public void iLoginToRMSWith(String user) {
-		logger.trace("I Login to RMS With" + user);
+		logger.trace("I Login to RMS With " + user);
 		HomePage homePage = new HomePage(state.getDriver());
 		homePage.loginToRMS(user);
 	}
