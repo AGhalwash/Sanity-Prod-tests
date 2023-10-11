@@ -4,10 +4,9 @@ import com.stacks.bdd.constants.core.Constants;
 import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.PageObject;
 import com.stacks.bdd.selenium.driver.core.Waiter;
+import com.stacks.bdd.utils.ExcelUtils;
 
 import static com.stacks.bdd.selenium.locator.rms.AuthorizationEditLocator.*;
-import static com.stacks.bdd.selenium.locator.rms.HomeLocator.PASSWORD_TEXT;
-import static com.stacks.bdd.selenium.locator.rms.HomeLocator.USER_TEXT;
 
 
 public class AuthorizationEditPage extends PageObject {
@@ -17,20 +16,27 @@ public class AuthorizationEditPage extends PageObject {
     }
 
 
-    public void actionOnPowerArrow(String status,String power){
-        switch (status) {
-            case "open":
-                if( Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_ARROW_BUTTON_CLOSED.by(power),10)) {
-                    driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_CLOSED.by(power), ROLE_POWER_ARROW_BUTTON_OPENED.by(power));
-                }
-                break;
-            case "close":
-                if( Waiter.waitExpectedConditionsVisibilityOf(driver,ROLE_POWER_ARROW_BUTTON_OPENED.by(power),10)) {
-                    driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_OPENED.by(power), ROLE_POWER_ARROW_BUTTON_CLOSED.by(power));
-                }
-                break;
-            default:
-                throw new IllegalArgumentException(power + Constants.NOT_FOUND);
+    public void actionOnPowerArrow(String status,String power) {
+        String filePath = "src/main/resources/Documents/RMS.xlsx";
+        String sheetName = "Reports";
+        Object[][] testData = ExcelUtils.readExcelData(filePath, sheetName);
+
+        for (Object[] data : testData) {
+            String report = (String) data[0];
+            switch (status) {
+                case "open":
+                    if (Waiter.waitExpectedConditionsVisibilityOf(driver, ROLE_POWER_ARROW_BUTTON_CLOSED.by(power), 10)) {
+                        driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_CLOSED.by(power), ROLE_POWER_ARROW_BUTTON_OPENED.by(power));
+                    }
+                    break;
+                case "close":
+                    if (Waiter.waitExpectedConditionsVisibilityOf(driver, ROLE_POWER_ARROW_BUTTON_OPENED.by(power), 10)) {
+                        driver.clickOnAndVerify(ROLE_POWER_ARROW_BUTTON_OPENED.by(power), ROLE_POWER_ARROW_BUTTON_CLOSED.by(power));
+                    }
+                    break;
+                default:
+                    throw new IllegalArgumentException(power + Constants.NOT_FOUND);
+            }
         }
     }
 

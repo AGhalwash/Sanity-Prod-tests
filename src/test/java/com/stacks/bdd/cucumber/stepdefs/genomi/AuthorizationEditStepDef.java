@@ -2,9 +2,6 @@ package com.stacks.bdd.cucumber.stepdefs.genomi;
 
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
 import com.stacks.bdd.selenium.page.rms.AuthorizationEditPage;
-import com.stacks.bdd.selenium.page.rms.AuthorizationViewPage;
-import com.stacks.bdd.selenium.page.rms.TicketListPage;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.apache.log4j.Logger;
 

@@ -19,8 +19,6 @@ public class CucumberTestState {
 	private final Map<String, Map<String, String>> dataTransferMap = new HashMap<>();
 
 	private IUser user;
-	private IPatient patient;
-	private IProfessional professional;
 
 
 
@@ -82,19 +80,4 @@ public class CucumberTestState {
 		this.user = user;
 	}
 
-	public IPatient getPatient() {
-		return patient;
-	}
-
-	public void setPatient(IPatient patient) {
-		this.patient = patient;
-	}
-
-	public IProfessional getProfessional() {
-		return professional;
-	}
-
-	public void setProfessional(IProfessional professional) {
-		this.professional = professional;
-	}
 }

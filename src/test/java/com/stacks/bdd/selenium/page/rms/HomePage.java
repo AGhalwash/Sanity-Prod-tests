@@ -5,6 +5,7 @@ import com.stacks.bdd.constants.core.SystemProperties;
 import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.PageObject;
 import com.stacks.bdd.selenium.driver.core.Waiter;
+import com.stacks.bdd.utils.ExcelUtils;
 
 import static com.stacks.bdd.selenium.locator.rms.HomeLocator.*;
 
@@ -23,19 +24,26 @@ public class HomePage extends PageObject {
     public void loginToRMS(String user) {
         openPageWithoutAcceptCookies();
         Waiter.waitExpectedConditionsVisibilityOf(driver, USER_TEXT.by(), 5);
-        switch (user) {
-            case "Normal user":
-                driver.sendKeysTo("aghalwash@arabdt.com", USER_TEXT);
-                driver.sendKeysTo("Arabdt1234", PASSWORD_TEXT);
-                break;
-            case "Admin":
-                driver.sendKeysTo("Super@super.com", USER_TEXT);
-                driver.sendKeysTo("P@ssw0rd", PASSWORD_TEXT);
-                break;
-            default:
-                throw new IllegalArgumentException(user + Constants.NOT_FOUND);
+        String filePath = "src/main/resources/Documents/RMS.xlsx";
+        String sheetName = "Login";
+        Object[][] testData = ExcelUtils.readExcelData(filePath, sheetName);
+
+        for (Object[] data : testData) {
+            String username = (String) data[0];
+
+            switch (user) {
+                case "Normal user":
+                    driver.sendKeysTo("aghalwash@arabdt.com", USER_TEXT);
+                    driver.sendKeysTo("Arabdt1234", PASSWORD_TEXT);
+                    break;
+                case "Admin":
+                    driver.sendKeysTo("Super@super.com", USER_TEXT);
+                    driver.sendKeysTo("P@ssw0rd", PASSWORD_TEXT);
+                    break;
+            }
+
         }
-        driver.clickOnAndVerify(SUBMIT_BUTTON.by());
+        driver.clickOn(SUBMIT_BUTTON.by());
     }
 
     public void logOut(){

@@ -10,8 +10,14 @@ public enum AddTicketLocator implements Locator, I18nLocator {
 	UNCHECK_CLIENT_TYPE_RADIO_BUTTON("unchecked.client.type.radio.button"),
 	TICKET_TYPE_RADIO_BUTTON("ticket.type.radio.button"),
 	LOADER_ICON(By.xpath("//img[@class='loader-img']")),
-	DROP_DOWN_LIST("drop.down.list"),
+	TICKET_SOURCE_DROP_DOWN_LIST("ticket.source.drop.down.list"),
+	APPOINTMENT_OF_OFFICIAL_DROP_DOWN_LIST("appointment.of.official.drop.down.list"),
 	DROP_DOWN_LIST_ITEM("drop.down.list.item"),
+	PHONE_NUMBER_FIELD(By.xpath("//input[@formcontrolname='phoneNumber']")),
+	CLIENT_NAME_FIELD(By.xpath("//input[@formcontrolname='clientName']")),
+	REQUEST_ADDRESS_FIELD(By.xpath("//input[@formcontrolname='subject']")),
+	DESCRIPTION_FIELD(By.xpath("//textarea[@formcontrolname='description']")),
+	APPOINTMENT_OF_OFFICIAL_RADIO_BUTTON("appointment.of.official.radio.button")
 
 
 	;
