@@ -6,7 +6,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "اوتوميشن أحمد"
+    And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
     And I check "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
@@ -31,7 +31,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "اوتوميشن أحمد"
+    And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
     And I uncheck "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
@@ -47,7 +47,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "اوتوميشن أحمد"
+    And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
     And I open "إضافة تذكرة بلاغ" power arrow button
     And I open " إضافة تذكرة (إستفسار)" power arrow button
@@ -76,7 +76,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "اوتوميشن أحمد"
+    And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
     And I open "عرض البلاغات للمسؤول" power arrow button
@@ -101,7 +101,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "اوتوميشن أحمد"
+    And I edit role with name "اوتوميشن"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
     And I open "عرض البلاغات للمسؤول" power arrow button
@@ -118,20 +118,20 @@ Feature: RMS - Check RMS privileges
     And I choose "الرس" branch
     And I click on save button
     And I click on save button
-    #When I click on "حالاتي" ticket status button
+    When I click on "حالاتي" ticket status button
     Then I don't find the created ticket
 
   Scenario: RMS - Check  View reports to the responsible department privilege - Checkbox checked & different department
-   # Given I Login to RMS With "Admin"
-   # And I change language to Arabic
-   # And I open Authorization View Page page
-   # And I edit role with name "اوتوميشن أحمد"
-   # And I open "البلاغات" power arrow button
-   # And I open "عرض البلاغات" power arrow button
-   # And I open "عرض البلاغات للمسؤول" power arrow button
-   # And I check "عرض البلاغات للقسم المسؤول" power checkbox
-   # And I click on save button
-   # And I log out from RMS
+    Given I Login to RMS With "Admin"
+    And I change language to Arabic
+    And I open Authorization View Page page
+    And I edit role with name "اوتوميشن"
+    And I open "البلاغات" power arrow button
+    And I open "عرض البلاغات" power arrow button
+    And I open "عرض البلاغات للمسؤول" power arrow button
+    And I check "عرض البلاغات للقسم المسؤول" power checkbox
+    And I click on save button
+    And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
     And I open View reports page
@@ -145,24 +145,24 @@ Feature: RMS - Check RMS privileges
     And I choose "قسم منطلق" branch
     And I click on save button
     And I click on save button
-    #When I click on "حالاتي" ticket status button
+    When I click on "حالاتي" ticket status button
     Then I don't find the created ticket
 
 
 
   Scenario: RMS - Check  View reports to the creator privilege - Checkbox checked & different department
-    #Given I Login to RMS With "Admin"
-    #And I change language to Arabic
-    #And I open Authorization View Page page
-    ##And I edit role with name "اوتوميشن أحمد"
-    #And I open "البلاغات" power arrow button
-    #And I open "عرض البلاغات" power arrow button
-    #And I open "عرض البلاغات للمسؤول" power arrow button
-    #And I uncheck "عرض البلاغات للمسؤول" power checkbox
-    #And I uncheck "عرض البلاغات لكل المسؤولين" power checkbox
-    #And I check "عرض البلاغات للقسم المسؤول" power checkbox
-    #And I click on save button
-    #And I log out from RMS
+    Given I Login to RMS With "Admin"
+    And I change language to Arabic
+    And I open Authorization View Page page
+    And I edit role with name "اوتوميشن"
+    And I open "البلاغات" power arrow button
+    And I open "عرض البلاغات" power arrow button
+    And I open "عرض البلاغات للمسؤول" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
+    And I uncheck "عرض البلاغات لكل المسؤولين" power checkbox
+    And I check "عرض البلاغات للقسم المسؤول" power checkbox
+    And I click on save button
+    And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
     And I open View reports page
@@ -180,13 +180,10 @@ Feature: RMS - Check RMS privileges
     Then I find the created ticket
 
 
-
-
-
   Scenario: RMS - sdsdsd
     Given I Login to RMS With "<Username>"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "اوتوميشن أحمد"
+    And I edit role with name "اوتوميشن"
     And I open "<Reports>" power arrow button
-    And I check "إضافة تذكرة بلاغ" power checkbox
+
