@@ -9,6 +9,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للمسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -39,6 +40,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -69,6 +71,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للمسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -99,6 +102,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالقسم" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -129,6 +133,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات لمسؤول بالقسم" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -159,6 +164,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالقسم" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -189,6 +195,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -219,6 +226,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -249,6 +257,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -279,6 +288,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للقسم المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -309,6 +319,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات للقسم المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -339,6 +350,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للقسم المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -369,6 +381,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للفرع المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -395,6 +408,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للفرع المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -422,6 +436,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للفرع المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -449,6 +464,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -476,6 +492,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
@@ -506,6 +523,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I edit role with name "اوتوميشن أحمد"
     And I open "البلاغات" power arrow button
     And I open "عرض البلاغات" power arrow button
+    And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
