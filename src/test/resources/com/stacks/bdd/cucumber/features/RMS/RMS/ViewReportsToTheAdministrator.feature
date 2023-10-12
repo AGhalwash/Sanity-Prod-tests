@@ -29,7 +29,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "أحمد جمال غلوش" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -60,7 +60,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "أحمد جمال غلوش" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -91,7 +91,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "عهود مبارك الحربي" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find add ticket button
 
 
@@ -122,7 +122,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "نوره جريد الزنيدي" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -153,7 +153,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "نوره جريد الزنيدي" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -184,7 +184,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "ندى عبدالله العقيل" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -215,7 +215,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "ندى عبدالله العقيل" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -246,7 +246,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "ندى عبدالله العقيل" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -277,7 +277,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "عهود مبارك الحربي" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -308,7 +308,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "الإدارة العامة للفرع" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -339,7 +339,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "الإدارة العامة للفرع" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -370,7 +370,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "قسم منطلق" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -398,7 +398,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "الرس" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
   Scenario: RMS - Check  View reports from the responsible branch privilege - Checkbox unchecked & correct branch
@@ -425,7 +425,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "الرس" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -453,7 +453,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "الطائف" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I don't find the created ticket
 
 
@@ -481,7 +481,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "الطائف" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -512,7 +512,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "قسم منطلق" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -544,7 +544,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "ندى عبدالله العقيل" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket
 
 
@@ -575,5 +575,5 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I choose "أحمد جمال غلوش" branch
     And I click on save button
     And I click on save button
-    When I click on "حالاتي" ticket status button
+    When I click on "بلاغاتي" ticket status button
     Then I find the created ticket

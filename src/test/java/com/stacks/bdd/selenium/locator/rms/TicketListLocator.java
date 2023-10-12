@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 
 public enum TicketListLocator implements Locator, I18nLocator {
 
-	ADD_TICKET_TO_CALL_CENTER_BUTTON(By.xpath("//button[span[contains(text(), 'إضافة تذكرة')]]")),
+	ADD_TICKET_TO_CALL_CENTER_BUTTON(By.xpath("//button[span[contains(text(), 'إضافة بلاغ')]]")),
 	TICKET_SUBJECT("ticket.subject"),
 	TICKET_STATUS_BUTTON("ticket.status.button")
 	;
