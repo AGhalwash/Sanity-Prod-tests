@@ -36,6 +36,10 @@ public class HomePage extends PageObject {
                     driver.sendKeysTo("aghalwash@arabdt.com", USER_TEXT);
                     driver.sendKeysTo("Arabdt1234", PASSWORD_TEXT);
                     break;
+                case "Normal user 2":
+                    driver.sendKeysTo("test@rms.com", USER_TEXT);
+                    driver.sendKeysTo("P@ssw0rd", PASSWORD_TEXT);
+                    break;
                 case "Admin":
                     driver.sendKeysTo("Super@super.com", USER_TEXT);
                     driver.sendKeysTo("P@ssw0rd", PASSWORD_TEXT);
