@@ -11,7 +11,7 @@ Feature: RMS - Check RMS privileges
     And I check "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
     And I log out from RMS
-    And I Login to RMS With "Normal user"
+    And I Login to RMS With "Normal user 2"
     And I change language to Arabic
     And I refresh page
     And I open View reports page
@@ -36,7 +36,7 @@ Feature: RMS - Check RMS privileges
     And I uncheck "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
     And I log out from RMS
-    And I Login to RMS With "Normal user"
+    And I Login to RMS With "Normal user 2"
     And I change language to Arabic
     And I refresh page
     When I open View reports page
@@ -58,7 +58,7 @@ Feature: RMS - Check RMS privileges
     And I check "بلاغ المسؤل (الفرع)" power checkbox
     And I click on save button
     And I log out from RMS
-    And I Login to RMS With "Normal user"
+    And I Login to RMS With "Normal user 2"
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
