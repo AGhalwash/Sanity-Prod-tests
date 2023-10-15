@@ -6,7 +6,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "تيست دور"
+    And I edit role with name "بريميم"
     And I open "البلاغات" power arrow button
     And I check "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
@@ -31,7 +31,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "تيست دور"
+    And I edit role with name "بريميم"
     And I open "البلاغات" power arrow button
     And I uncheck "إضافة تذكرة بلاغ" power checkbox
     And I click on save button
@@ -47,7 +47,7 @@ Feature: RMS - Check RMS privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
-    And I edit role with name "تيست دور"
+    And I edit role with name "بريميم"
     And I open "البلاغات" power arrow button
     And I open "إضافة تذكرة بلاغ" power arrow button
     And I open " إضافة تذكرة (إستفسار)" power arrow button
@@ -69,12 +69,4 @@ Feature: RMS - Check RMS privileges
     And I click on "موظف" radio button
     And I open "الفرع" list in ticket source section
     And I do find all branches
-
-
-  Scenario: RMS - sdsdsd
-    Given I Login to RMS With "<Username>"
-    And I change language to Arabic
-    And I open Authorization View Page page
-    And I edit role with name "تيست دور"
-    And I open "<Reports>" power arrow button
 
