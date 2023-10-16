@@ -92,7 +92,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I click on save button
     When I click on "بلاغاتي" ticket status button
-    Then I don't find add ticket button
+    Then I don't find the created ticket
 
 
   Scenario: RMS - Check  Present reports to a department official privilege - Checkbox checked & correct department
