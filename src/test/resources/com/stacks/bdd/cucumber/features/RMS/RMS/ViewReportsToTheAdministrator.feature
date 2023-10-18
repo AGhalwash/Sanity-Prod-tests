@@ -13,6 +13,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للمسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -44,6 +46,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -75,6 +79,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للمسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -106,6 +112,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالقسم" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -137,6 +145,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات لمسؤول بالقسم" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -168,6 +178,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالقسم" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -199,6 +211,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -230,6 +244,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -261,6 +277,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -292,6 +310,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للقسم المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -323,6 +343,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I uncheck "عرض البلاغات للقسم المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -354,6 +376,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للقسم المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -385,6 +409,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للفرع المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -412,6 +438,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للفرع المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -440,6 +468,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات للفرع المسؤول" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -468,6 +498,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -496,6 +528,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I open "عرض البلاغات للمسؤول" power arrow button
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -528,6 +562,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I uncheck "عرض البلاغات لمسؤول بالفرع" power checkbox
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
@@ -559,6 +595,8 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I uncheck "عرض البلاغات للمسؤول" power checkbox
     And I check "عرض البلاغات لكل المسؤولين" power checkbox
     And I uncheck "عرض البلاغات لمُنشئ التذكرة" power checkbox
+    And I open "عرض البلاغات لنوع التذكرة" power arrow button
+    And I check "عرض البلاغات لكل انواع التذاكر" power checkbox
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
