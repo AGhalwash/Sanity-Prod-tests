@@ -55,28 +55,39 @@ public final class CustomWebDriver {
 		driver.get(pageUrl);
 	}
   public void zoomOut(){
-	  try {
-		  Robot robot = new Robot();
-		  robot.keyPress(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_CONTROL);
-		  robot.keyPress(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_MINUS);
-		  robot.keyRelease(KeyEvent.VK_CONTROL);
-	  } catch (AWTException e) {
-		  e.printStackTrace();
+	  if (getCurrentZoomLevel(driver) > 67) {
+		  try {
+			  Robot robot = new Robot();
+			  robot.keyPress(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_CONTROL);
+			  robot.keyPress(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_MINUS);
+			  robot.keyRelease(KeyEvent.VK_CONTROL);
+		  } catch (AWTException e) {
+			  e.printStackTrace();
+		  }
 	  }
   }
+
+	public static int getCurrentZoomLevel(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+		// Execute JavaScript to calculate the current zoom level
+		long outerWidth = (Long) js.executeScript("return window.outerWidth");
+		long innerWidth = (Long) js.executeScript("return window.innerWidth");
+		return (int) ((outerWidth / innerWidth) * 100);
+	}
 	/**
 	 * Calls the custom clickOn(By,retrys) function
 	 *
