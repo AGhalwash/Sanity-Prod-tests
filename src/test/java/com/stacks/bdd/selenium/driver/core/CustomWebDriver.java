@@ -55,7 +55,7 @@ public final class CustomWebDriver {
 		driver.get(pageUrl);
 	}
   public void zoomOut(){
-	  if (getCurrentZoomLevel(driver) > 67) {
+	 /* if (getCurrentZoomLevel(driver) > 67) {
 		  try {
 			  Robot robot = new Robot();
 			  robot.keyPress(KeyEvent.VK_CONTROL);
@@ -77,7 +77,9 @@ public final class CustomWebDriver {
 		  } catch (AWTException e) {
 			  e.printStackTrace();
 		  }
-	  }
+	  }*/
+	  JavascriptExecutor js = (JavascriptExecutor) driver;
+	  js.executeScript("document.body.style.zoom = '67%'");
   }
 
 	public static int getCurrentZoomLevel(WebDriver driver) {
