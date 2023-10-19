@@ -79,8 +79,8 @@ public final class CustomWebDriver {
 		  }
 	  }*/
 	  JavascriptExecutor js = (JavascriptExecutor) driver;
-	  js.executeScript("document.body.style.zoom = '67%'");
-  }
+	  String script = "document.body.style.zoom = '" + 0.67 + "';";
+	  js.executeScript(script);  }
 
 	public static int getCurrentZoomLevel(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
