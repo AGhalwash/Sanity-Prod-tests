@@ -54,8 +54,15 @@ public final class CustomWebDriver {
 	public void openPage(String pageUrl) {
 		driver.get(pageUrl);
 	}
-  public void zoomOut(){
-	 /* if (getCurrentZoomLevel(driver) > 67) {
+  public void zoomOut() {
+	  String mainWindowHandle = driver.getWindowHandle();
+	  Set<String> allWindowHandles = driver.getWindowHandles();
+	  for (String handle : allWindowHandles) {
+		  if (!handle.equals(mainWindowHandle)) {
+			  driver.switchTo().window(handle);
+		  }
+	  }
+	  if (getCurrentZoomLevel(driver) > 67) {
 		  try {
 			  Robot robot = new Robot();
 			  robot.keyPress(KeyEvent.VK_CONTROL);
@@ -77,10 +84,8 @@ public final class CustomWebDriver {
 		  } catch (AWTException e) {
 			  e.printStackTrace();
 		  }
-	  }*/
-	  JavascriptExecutor js = (JavascriptExecutor) driver;
-	  String script = "document.body.style.zoom = '" + 0.67 + "';";
-	  js.executeScript(script);  }
+	  }
+  }
 
 	public static int getCurrentZoomLevel(WebDriver driver) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
