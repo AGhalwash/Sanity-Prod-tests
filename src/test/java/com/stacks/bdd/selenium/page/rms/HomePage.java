@@ -19,6 +19,7 @@ public class HomePage extends PageObject {
     public void openPageWithoutAcceptCookies() {
         driver.openPage(SystemProperties.getServerUrl());
         Waiter.waitForLoad(driver);
+        driver.zoomOut();
     }
 
     public void loginToRMS(String user) {

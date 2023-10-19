@@ -145,7 +145,7 @@
         <log4j-version>2.19.0</log4j-version>
         <liquibase-maven-plugin-version>4.14.0</liquibase-maven-plugin-version>
         <ojdbc8.version>19.6.0.0</ojdbc8.version>
-        <selenium.version>4.6.0</selenium.version>
+        <selenium.version>4.9.0</selenium.version>
         <cluecumber-report-plugin>2.9.2</cluecumber-report-plugin>
         <exec-maven-plugin>1.6.0</exec-maven-plugin>
         <cluecumber-report-plugin.version>2.9.4</cluecumber-report-plugin.version>
@@ -401,10 +401,12 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.5.0</version>
+            <version>5.5.3</version>
         </dependency>
 
+
         <!-- Selenium dependencies -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>

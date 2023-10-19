@@ -14,6 +14,8 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -52,7 +54,29 @@ public final class CustomWebDriver {
 	public void openPage(String pageUrl) {
 		driver.get(pageUrl);
 	}
-
+  public void zoomOut(){
+	  try {
+		  Robot robot = new Robot();
+		  robot.keyPress(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_CONTROL);
+		  robot.keyPress(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_MINUS);
+		  robot.keyRelease(KeyEvent.VK_CONTROL);
+	  } catch (AWTException e) {
+		  e.printStackTrace();
+	  }
+  }
 	/**
 	 * Calls the custom clickOn(By,retrys) function
 	 *
