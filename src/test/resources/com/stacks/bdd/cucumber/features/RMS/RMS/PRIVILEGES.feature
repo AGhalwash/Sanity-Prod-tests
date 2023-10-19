@@ -53,6 +53,7 @@ Feature: RMS - Check RMS privileges
     Then I don't find add ticket button
 
 
+
   Scenario: RMS - Check call center Branch privileges
     Given I Login to RMS With "Admin"
     And I change language to Arabic
