@@ -74,15 +74,10 @@ public class HomePage extends PageObject {
     }
 
     public void openAuthorizationViewPage(){
-       if( !Waiter.waitExpectedConditionsVisibilityOf(driver, SETTINGS_BUTTON.by(), 5)) {
-           driver.clickOnAndVerify(REPORTS_BUTTON.by(), SETTINGS_BUTTON.by());
+       Waiter.waitExpectedConditionsVisibilityOf(driver, SETTINGS_BUTTON.by(), 5);
+           driver.clickOn(RIGHT_ARROW_BUTTON.by());
            driver.clickOnAndVerify(SETTINGS_BUTTON.by(), VIEW_AUTHORIZATION_VIEW_BUTTON.by());
            driver.clickOnAndVerify(VIEW_AUTHORIZATION_VIEW_BUTTON.by());
-       }
-       else{
-           Waiter.waitExpectedConditionsVisibilityOf(driver, SETTINGS_BUTTON.by(), 5);
-           driver.clickOnAndVerify(SETTINGS_BUTTON.by(),VIEW_AUTHORIZATION_VIEW_BUTTON.by());
-           driver.clickOnAndVerify(VIEW_AUTHORIZATION_VIEW_BUTTON.by());
-       }
+
     }
 }
