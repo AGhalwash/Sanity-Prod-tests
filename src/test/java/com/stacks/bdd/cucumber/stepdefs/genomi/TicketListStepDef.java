@@ -60,4 +60,11 @@ public class TicketListStepDef {
 		TicketListPage ticketListPage = new TicketListPage(state.getDriver());
 		ticketListPage.clickOnTicketStatusButton(status);
 	}
+
+	@And("^I click on sort by ticket number$")
+	public void iClickOnSortByTicketNumber() {
+		logger.trace("I click on sort by ticket number");
+		TicketListPage ticketListPage = new TicketListPage(state.getDriver());
+		ticketListPage.clickOnSortByTicketNumber();
+	}
 }

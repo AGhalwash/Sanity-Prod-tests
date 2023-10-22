@@ -8,7 +8,9 @@ public enum TicketListLocator implements Locator, I18nLocator {
 
 	ADD_TICKET_TO_CALL_CENTER_BUTTON(By.xpath("//button[span[text()='إضافة بلاغ']]")),
 	TICKET_SUBJECT("ticket.subject"),
-	TICKET_STATUS_BUTTON("ticket.status.button")
+	TICKET_STATUS_BUTTON("ticket.status.button"),
+
+	SORTING_BY_TICKET_NUMBER_BUTTON(By.xpath("//th[.//span[contains(text(), 'رقم البلاغ')]]/span"))
 	;
 
 	String resourceName = "com/stacks/bdd/selenium/locator/home_%s.properties";

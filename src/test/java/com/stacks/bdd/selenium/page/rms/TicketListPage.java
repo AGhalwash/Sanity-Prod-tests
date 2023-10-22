@@ -32,4 +32,10 @@ public class TicketListPage extends PageObject {
         driver.clickOn(TICKET_STATUS_BUTTON.by(status));
         Waiter.waitForDisappearanceElements(driver,LOADER_ICON.by(),5);
     }
+
+    public void clickOnSortByTicketNumber(){
+        Waiter.waitExpectedConditionsVisibilityOf(driver, SORTING_BY_TICKET_NUMBER_BUTTON.by(),5);
+        driver.clickOn(SORTING_BY_TICKET_NUMBER_BUTTON.by());
+        Waiter.waitForDisappearanceElements(driver,LOADER_ICON.by(),5);
+    }
 }
