@@ -117,4 +117,13 @@ public class AddTicketStepDef {
 		AddTicketPage addTicketPage = new AddTicketPage(state.getDriver());
 		addTicketPage.clickOnAppointmentOfOfficialRadioButton(button);
 	}
+
+	@And("^I enter mandatory fields without client name$")
+	public void iEnterMandatoryFieldsWithoutClientName() {
+		logger.trace("I enter mandatory fields");
+		AddTicketPage addTicketPage = new AddTicketPage(state.getDriver());
+		addTicketPage.fillClientPhoneNumber();
+		state.addElementToDataTransfer(STEPDEF,SUBJECT,addTicketPage.fillRequestAddress());
+		addTicketPage.fillDescription();
+	}
 }

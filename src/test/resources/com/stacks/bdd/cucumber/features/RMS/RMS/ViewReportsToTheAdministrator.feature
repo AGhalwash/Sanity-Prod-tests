@@ -153,7 +153,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -185,7 +184,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
@@ -219,7 +217,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -251,7 +248,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
@@ -285,7 +281,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -317,7 +312,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
@@ -352,7 +346,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -385,7 +378,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
@@ -420,7 +412,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -449,7 +440,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
@@ -481,7 +471,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -512,7 +501,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -541,7 +529,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
@@ -576,7 +563,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I log out from RMS
     And I Login to RMS With "Normal user"
     And I change language to Arabic
-    And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page
     And I click on "عميل خارجي" radio button
@@ -608,7 +594,6 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     And I click on save button
     And I log out from RMS
     And I Login to RMS With "Normal user"
-    And I change language to Arabic
     And I change language to Arabic
     And I open View reports page
     And I open add ticket to call center page

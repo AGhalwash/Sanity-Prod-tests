@@ -29,13 +29,13 @@ Feature: RMS - Check RMS privileges
     And I open add ticket to call center page
     When I click on "ولي أمر" radio button
     Then I find "طلب" & "اقتراح" & "استفسار" & "شكوى شخصية" radio buttons
-    And I don't find "شكوة عمل" radio button
+    And I don't find "شكوى عمل" radio button
     And I click on "عميل خارجي" radio button
     And I find "طلب" & "اقتراح" & "استفسار" & "شكوى شخصية" radio buttons
-    And I don't find "شكوة عمل" radio button
+    And I don't find "شكوى عمل" radio button
     And I click on "موظف" radio button
     And I find "طلب" & "اقتراح" & "استفسار" & "شكوى شخصية" radio buttons
-    And I do find "شكوة عمل" radio button
+    And I do find "شكوى عمل" radio button
 
 
   Scenario: RMS - Check call center removed privileges
