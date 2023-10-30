@@ -578,7 +578,7 @@ Feature: RMS - Check RMS privileges - View reports to the administrator
     Then I find the created ticket
 
 
-  Scenario: RMS -  Check View reports to all officials privileg - View reports to the administrator - Checkbox unchecked & correct administrator
+  Scenario: RMS -  Check View reports to all officials privilege - View reports to the administrator - Checkbox unchecked & correct administrator
     Given I Login to RMS With "Admin"
     And I change language to Arabic
     And I open Authorization View Page page
