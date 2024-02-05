@@ -2,6 +2,7 @@ package com.test.RestManager;
 
 
 import com.stacks.bdd.constants.core.Constants;
+import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
@@ -10,10 +11,12 @@ import org.apache.log4j.Logger;
 import java.io.IOException;
 import java.util.Map;
 
+import static io.restassured.RestAssured.given;
+
 
 public final class RestManager {
 
-    private RestManager() {
+    public RestManager(CustomWebDriver driver) {
 
     }
 
@@ -103,6 +106,36 @@ public final class RestManager {
         }
         Response response = sendRequestByMethod(requestSpecification,opType,url);
         return response;
+    }
+
+    public String getAccessToken() {
+        String accessToken = null;
+        String requestBody = "{" +
+                "\"grant_type\": \"password\"," +
+                "\"username\": \"auto.superadmin01@ashour.com\"," +
+                "\"password\": \"1234512345ab\"," +
+                "\"audience\": \"https://alefed.com/backend\"," +
+                "\"scope\": \"openid profile email\"," +
+                "\"client_id\": \"2L8g2yDFThx0Qety6RcLnAJxYQWcKoUJ\"," +
+                "\"client_secret\": \"7Eb85Vt992mr8HtrkkzNsY-B9HW2nHq2CrnNvCU90guyVkxU0h_XSKSvRn5rQ1wT\"" +
+                "}";
+
+        Response response = given().contentType("application/json")
+                .body(requestBody)
+                .when().post("https://alef-jackals.eu.auth0.com/oauth/token");
+
+        // Print the response content for debugging
+        System.out.println("Response Content: " + response.getBody().asString());
+
+        if (response.getStatusCode() == 200) {
+            accessToken = response.then().extract().path("access_token");
+            System.out.println("access_token: " + response.getBody().asString());
+        } else {
+            System.out.println("Error Response: " + response.getBody().asString());
+            // Implement error handling logic if needed
+        }
+
+        return accessToken;
     }
 
 }

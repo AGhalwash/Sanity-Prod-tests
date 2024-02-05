@@ -1,8 +1,8 @@
-package com.stacks.bdd.cucumber.stepdefs.genomi;
+package com.stacks.bdd.cucumber.stepdefs.alef;
 
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
 import com.stacks.bdd.selenium.page.alef.GradesPage;
-import com.stacks.bdd.selenium.page.alef.StaffPage;
+import com.stacks.bdd.selenium.page.alef.SchoolsPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.log4j.Logger;
@@ -22,7 +22,7 @@ public class GradesStepDef {
     public void editGradesStaffPageAppear() {
         logger.trace("Edit Grades staff page appear");
         GradesPage gradesPage = new GradesPage(state.getDriver());
-        Assert.assertTrue("Edit grades staff page did not appear",gradesPage.editGradesAppeared());
+        Assert.assertTrue("Edit grades staff page did not appear", gradesPage.editGradesAppeared());
     }
 
     @When("^I click on add grades button$")
@@ -36,7 +36,7 @@ public class GradesStepDef {
     public void addGradesPageAppear() {
         logger.trace("Add grades page appear");
         GradesPage gradesPage = new GradesPage(state.getDriver());
-        Assert.assertTrue("Add school staff page did not appear",gradesPage.addGradesAppeared());
+        Assert.assertTrue("Add school staff page did not appear", gradesPage.addGradesAppeared());
     }
 
     @When("^I click on delete button in grades page$")
@@ -50,6 +50,20 @@ public class GradesStepDef {
     public void deleteGradePopUpMessageAppear() {
         logger.trace("Delete grade pop up message appear");
         GradesPage gradesPage = new GradesPage(state.getDriver());
-        Assert.assertTrue("Delete grades pop up message did not appear",gradesPage.deleteGradePopupMessage());
+        Assert.assertTrue("Delete grades pop up message did not appear", gradesPage.deleteGradePopupMessage());
+    }
+
+    @When("^I click on edit grade button$")
+    public void iClickOnEditGradeButton() {
+        logger.trace("Delete grade pop up message appear");
+        GradesPage gradesPage = new GradesPage(state.getDriver());
+        gradesPage.clickOnEditGradeButton();
+    }
+
+    @Then("^I find \"([^\"]*)\" grade$")
+    public void iFindGrade(String value) {
+        logger.trace("I find " + value);
+        GradesPage gradesPage = new GradesPage(state.getDriver());
+        Assert.assertTrue("searched is not found", gradesPage.findSearchedGrade(value));
     }
 }

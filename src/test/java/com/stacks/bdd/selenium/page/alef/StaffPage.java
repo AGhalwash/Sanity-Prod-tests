@@ -5,53 +5,47 @@ import com.stacks.bdd.selenium.driver.core.PageObject;
 import com.stacks.bdd.selenium.driver.core.Waiter;
 
 import static com.stacks.bdd.selenium.locator.alef.ClassesLocator.*;
+import static com.stacks.bdd.selenium.locator.alef.StaffLocator.*;
 
 
-public class ClassesPage extends PageObject {
+public class StaffPage extends PageObject {
 
-    public ClassesPage(CustomWebDriver driver) {
-        super(driver, ClassesPage.class.getName());
+    public StaffPage(CustomWebDriver driver) {
+        super(driver, StaffPage.class.getName());
     }
 
 
-    public void clickOnAddClassButton() {
-        Waiter.waitExpectedConditionsVisibilityOf(driver, ADD_CLASS_BUTTON.by(), 5);
-        driver.clickOnAndVerify(ADD_CLASS_BUTTON.by());
+    public boolean editStaffAppeared(){
+        boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Edit school staff information"), 5);
+        boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("School Staff’s First Name"), 5);
+        boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Role"), 5);
+        boolean condition4 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Exclude From Report"), 5);
+        boolean condition5 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Force Change Password"), 5);
+        boolean condition6 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("School Staff’s Middle Name"), 5);
+        return (condition1 && condition2 && condition3 && condition4 && condition5 && condition6);
     }
 
-    public void clickOnClassMaterialDropDownMenu() {
-        Waiter.waitExpectedConditionsVisibilityOf(driver, CLASS_MATERIAL_DROP_DOWN_MENU.by(), 5);
-        driver.scrollToElement(CLASS_MATERIAL_DROP_DOWN_MENU.by());
-        driver.clickOn(CLASS_MATERIAL_DROP_DOWN_MENU);
-    }
-
-    public void searchClassMaterialDropDownMenu(String value) {
-        Waiter.waitExpectedConditionsVisibilityOf(driver, CLASS_MATERIAL_SEARCH_TEXT.by(), 5);
-        driver.sendKeysTo(value, CLASS_MATERIAL_SEARCH_TEXT.by());
-    }
-
-    public boolean findPathwayOption() {
-        return Waiter.waitExpectedConditionsVisibilityOf(driver, PATHWAY_OPTION.by(), 5);
-    }
-
-    public boolean editClassPageAppeared(){
-        boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Edit class"), 5);
-        boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Class Information"), 5);
-        boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Teacher"), 5);
-        boolean condition4 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Class Material"), 5);
-        boolean condition5 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Class Settings"), 5);
+    public boolean addStaffAppeared(){
+        boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Add school staff information"), 5);
+        boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("School Staff’s First Name"), 5);
+        boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Role"), 5);
+        boolean condition4 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Exclude From Report"), 5);
+        boolean condition5 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("School Staff’s Middle Name"), 5);
         return (condition1 && condition2 && condition3 && condition4 && condition5);
     }
 
-    public boolean classPageAppeared(String value){
-        boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by(value), 5);
-        boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Class details"), 5);
-        boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Student enrollment"), 5);
-        boolean condition4 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Class schedule"), 5);
-        boolean condition5 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by(" Edit class"), 5);
-        boolean condition6 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("+ Add Student"), 5);
-        boolean condition7 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("+ Add Schedule"), 5);
-        return (condition1 && condition2 && condition3 && condition4 && condition5 && condition6 && condition7);
+    public void clickOnDisableButton(){
+        Waiter.waitExpectedConditionsVisibilityOf(driver,DISABLE_BUTTON.by(),5);
+        driver.clickOn(DISABLE_BUTTON.by());
+    }
+
+    public boolean checkDisableStaffPopupMessage(){
+        return Waiter.waitExpectedConditionsVisibilityOf(driver,DISABLE_STAFF_POP_UP_MESSAGE.by(),5);
+    }
+
+    public void clickOnAddStaffButton(){
+        Waiter.waitExpectedConditionsVisibilityOf(driver,ADD_STAFF_BUTTON.by(),5);
+        driver.clickOnAndVerify(ADD_STAFF_BUTTON.by());
     }
 }
 

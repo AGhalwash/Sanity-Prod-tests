@@ -1,50 +1,37 @@
 
-Feature: ALEF - Us sanity tests
+Feature: ALEF - Us schools sanity tests
 
 
-  Scenario: Us - Check pathway search
+  Scenario: Us - Check search for school
     Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
-    And I click on first school
-    And I click on "classes" section
-    And I click on add class button
-    When I search by "pathway" in class material dropdown menu
-    Then I find pathway options
+    And I choose organization "North Carolina"
+    When I search for "Polk County Middle School"
+    Then I find "Polk County Middle School"
 
-  Scenario: Us - Check search for class
+  Scenario: Us - Check school details page
     Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
     And I choose organization "North Carolina"
     And I search for "Polk County Middle School"
-    And I select "Polk County Middle School"
-    And I click on "classes" section
-    When I search for "Core 1 - Graber"
-    Then I find "Core 1 - Graber"
+    When I select "Polk County Middle School"
+    Then School details page appears
 
-  Scenario: Us - Check Class page
+  Scenario: Us - Check edit schools page
     Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
     And I choose organization "North Carolina"
     And I search for "Polk County Middle School"
-    And I select "Polk County Middle School"
-    And I click on "classes" section
-    And I search for "Core 1 - Graber"
-    When I select "Core 1 - Graber"
-    Then Class page appeared
-
-  Scenario: Us - Check edit class page
-    Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
-    And I choose organization "North Carolina"
-    And I search for "Polk County Middle School"
-    And I select "Polk County Middle School"
-    And I click on "classes" section
-    And I search for "Core 1 - Graber"
     When I click on edit button
-    Then Edit class page appeared
+    Then Edit school page appears
 
-  Scenario: Us - Check delete class page
+  Scenario: Us - Check delete schools pop up
     Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
     And I choose organization "North Carolina"
     And I search for "Polk County Middle School"
-    And I select "Polk County Middle School"
-    And I click on "classes" section
-    And I search for "Core 1 - Graber"
-    When I click on delete button
-    Then Delete pop up message appear
+    When I click on delete button for schools
+    Then Delete school pop up message appear
+
+  Scenario: Us - Check disable schools pop up
+    Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
+    And I choose organization "North Carolina"
+    And I search for "Polk County Middle School"
+    When I click on disable button for schools
+    Then Disable school pop up message appear

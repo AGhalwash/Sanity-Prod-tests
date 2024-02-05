@@ -1,10 +1,7 @@
-package com.stacks.bdd.cucumber.stepdefs.genomi;
+package com.stacks.bdd.cucumber.stepdefs.alef;
 
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
-import com.stacks.bdd.selenium.page.alef.ClassesPage;
-import com.stacks.bdd.selenium.page.alef.SchoolsPage;
 import com.stacks.bdd.selenium.page.alef.StaffPage;
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.apache.log4j.Logger;

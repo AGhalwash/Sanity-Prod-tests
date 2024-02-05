@@ -1,46 +1,33 @@
 
-Feature: ALEF - Idn sanity tests
+Feature: ALEF - Idn schools sanity tests
 
 
-  Scenario: Idn - Check pathway search
+  Scenario: Idn - Check search for school
     Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
-    And I click on first school
-    And I click on "classes" section
-    And I click on add class button
-    When I search by "pathway" in class material dropdown menu
-    Then I find pathway options
+    When I search for "DEMO SCHOOL (22189)"
+    Then I find "DEMO SCHOOL (22189)"
 
-  Scenario: Idn - Check search for class
+
+  Scenario: Idn - Check school details page
     Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
     And I search for "DEMO SCHOOL (22189)"
-    And I select "DEMO SCHOOL (22189)"
-    And I click on "classes" section
-    When I search for "Matematika 7"
-    Then I find "Matematika 7"
+    When I select "DEMO SCHOOL (22189)"
+    Then School details page appears
 
-  Scenario: Idn - Check Class page
+  Scenario: Idn - Check edit schools page
     Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
     And I search for "DEMO SCHOOL (22189)"
-    And I select "DEMO SCHOOL (22189)"
-    And I click on "classes" section
-    And I search for "Matematika 7"
-    When I select "Matematika 7"
-    Then Class page appeared
-
-  Scenario: Idn - Check edit class page
-    Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
-    And I search for "DEMO SCHOOL (22189)"
-    And I select "DEMO SCHOOL (22189)"
-    And I click on "classes" section
-    And I search for "Matematika 7"
     When I click on edit button
-    Then Edit class page appeared
+    Then Edit school page appears
 
-  Scenario: Idn - Check delete class page
+  Scenario: Idn - Check delete schools page
     Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
     And I search for "DEMO SCHOOL (22189)"
-    And I select "DEMO SCHOOL (22189)"
-    And I click on "classes" section
-    And I search for "Matematika 7"
-    When I click on delete button
-    Then Delete pop up message appear
+    When I click on delete button for schools
+    Then Delete school pop up message appear
+
+  Scenario: Idn - Check disable schools page
+    Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
+    And I search for "DEMO SCHOOL (22189)"
+    When I click on disable button for schools
+    Then Disable school pop up message appear

@@ -1,9 +1,8 @@
-package com.stacks.bdd.cucumber.stepdefs.genomi;
+package com.stacks.bdd.cucumber.stepdefs.alef;
 
 import com.stacks.bdd.constants.core.Constants;
 import com.stacks.bdd.constants.genomi.User;
 import com.stacks.bdd.cucumber.runner.CucumberTestState;
-import com.stacks.bdd.selenium.driver.core.Waiter;
 import com.stacks.bdd.selenium.page.alef.ClassesPage;
 import com.stacks.bdd.selenium.page.alef.LogInPage;
 import com.stacks.bdd.selenium.page.alef.SchoolsPage;

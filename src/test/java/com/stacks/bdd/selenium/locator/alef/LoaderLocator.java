@@ -1,4 +1,4 @@
-package com.stacks.bdd.selenium.locator.rms;
+package com.stacks.bdd.selenium.locator.alef;
 
 import com.stacks.bdd.selenium.locator.core.Locator;
 import org.openqa.selenium.By;

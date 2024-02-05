@@ -4,15 +4,12 @@ import com.stacks.bdd.selenium.locator.core.I18nLocator;
 import com.stacks.bdd.selenium.locator.core.Locator;
 import org.openqa.selenium.By;
 
-public enum ClassesLocator implements Locator, I18nLocator {
+public enum StaffLocator implements Locator, I18nLocator {
 
 
-    ADD_CLASS_BUTTON(By.xpath("//button[contains(@class,'button button--primary')]")),
-    CLASS_MATERIAL_DROP_DOWN_MENU(By.xpath("//div[contains(@class, 'custom-select') and @data-qa='form-class-material' and @data-testid='form-class-material']")),
-    CLASS_MATERIAL_SEARCH_TEXT(By.xpath("//div[contains(@class, 'css-d7wsyz')]//input[contains(@id, 'react-select-20-input')]")),
-    PATHWAY_OPTION(By.xpath("//div[contains(@class,'material-badge material-type') and text()='PATHWAY']")),
-    SEARCH_TEXT_FIELD(By.id("table-search-input")),
-    HEAD_TITLE_TEXT("head.title.text"),
+    DISABLE_BUTTON(By.xpath("//*[contains(@data-qa, 'table-item-disable')]")),
+    DISABLE_STAFF_POP_UP_MESSAGE(By.xpath("//div[contains(@id, 'swal2-content') and contains(text(), 'Are you sure you want to disable?')]")),
+    ADD_STAFF_BUTTON(By.xpath("//button[contains(@data-qa,'add-new-staff')]"))
 
     ;
     String resourceName = "com/stacks/bdd/selenium/locator/schools_%s.properties";
@@ -21,12 +18,12 @@ public enum ClassesLocator implements Locator, I18nLocator {
     private String key;
     private String description;
 
-    ClassesLocator(By locator) {
+    StaffLocator(By locator) {
         this.description = description;
         this.locator = locator;
     }
 
-    ClassesLocator(String key) {
+    StaffLocator(String key) {
         this.key = key;
         this.locator = By.xpath(this.getSelector());
     }

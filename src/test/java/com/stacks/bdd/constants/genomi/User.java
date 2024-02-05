@@ -8,7 +8,11 @@ import java.util.EnumSet;
 public enum User implements IUser {
 
 	//COMMON USERS
-	ADMIN_USER_BDD(null, "USER_BDD_ADMIN", "Cambiar_20", "BDD Admin"),
+	ADMIN_USER_DEMO(null, "demoadmin@alef.ae", "4cb3e8fa7bc539de18e902c835d1df8625516d8b", "ADMIN_USER_DEMO"),
+	ADMIN_USER_US(null, "zaghamussuperadmin@alef.ae", "zaghamussuperadmin", "ADMIN_USER_US"),
+	ADMIN_USER_IDN(null, "zagham-indo@alefeducation.com", "Alef@7HgD&ZV", "ADMIN_USER_IDN"),
+	ADMIN_USER_MOE(null, "ishar@alefeducation.com", "ishar12345", "ADMIN_USER_MOE"),
+	ADMIN_USER_SCHOOLS(null, "ahmed.schools@alef.ae", "4cb3e8fa7bc539de18e902c83", "ADMIN_USER_SCHOOLS")
 
 
 	;

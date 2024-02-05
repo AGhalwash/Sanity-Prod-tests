@@ -1,5 +1,6 @@
 package com.stacks.bdd.selenium.page.alef;
 
+import com.stacks.bdd.constants.core.Browser;
 import com.stacks.bdd.constants.core.SystemProperties;
 import com.stacks.bdd.selenium.driver.core.CustomWebDriver;
 import com.stacks.bdd.selenium.driver.core.Waiter;
@@ -7,15 +8,16 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
+import java.util.EnumSet;
 
-import static com.stacks.bdd.selenium.locator.alef.HomeLocator.*;
+import static com.stacks.bdd.selenium.locator.alef.SchoolsLocator.*;
 
 
 public class LogInPage {
 
 	static Logger logger = Logger.getLogger(LogInPage.class.getName());
 	private final CustomWebDriver driver;
-	
+
 	private static final String SUBMITLOGININ = "submitLogIn";
 
 	private static final String LOGIN = "Login - ALEF";
@@ -23,14 +25,10 @@ public class LogInPage {
 		this.driver = driver;
 	}
 
-	public void openPage() {
-		logger.trace("openPage");
-		openPageWithoutAcceptCookies();
-	}
 
-	public void openPageWithoutAcceptCookies()
-	{
-		driver.openPage(SystemProperties.getServerUrl());
+	public void openPage(String url)
+	{   logger.trace("openPage");
+		driver.openPage(SystemProperties.getServerUrl(url));
 		Waiter.waitForLoad(driver);
 		WebDriverWait wait = new WebDriverWait(driver.getSeleniumWebDriver(), Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.titleContains(LOGIN));

@@ -1,36 +1,44 @@
 
-Feature: ALEF - Demo schools sanity tests
+Feature: ALEF - Demo staff sanity tests
 
 
-  Scenario: Demo - Check search for school
-    Given I Login to ALEF With "ADMIN_USER_DEMO" in environment "Demo"
-    When I search for "0 Multi Subject DO not touch"
-    Then I find "0 Multi Subject DO not touch"
-
-
-  Scenario: Demo - Check school details page
+  Scenario: Demo - Check search for staff
     Given I Login to ALEF With "ADMIN_USER_DEMO" in environment "Demo"
     And I search for "0 Multi Subject DO not touch"
-    When I select "0 Multi Subject DO not touch"
-    Then School details page appears
+    And I select "0 Multi Subject DO not touch"
+    And I click on "staff" section
+    When I search for "Test-prin"
+    Then I find "Test-prin"
 
-  Scenario: Demo - Check edit schools page
+  Scenario: Demo - Check edit staff page
     Given I Login to ALEF With "ADMIN_USER_DEMO" in environment "Demo"
     And I search for "0 Multi Subject DO not touch"
+    And I select "0 Multi Subject DO not touch"
+    And I click on "staff" section
+    And I search for "Test-prin"
     When I click on edit button
-    Then Edit school page appears
+    Then Edit school staff page appear
 
-  Scenario: Demo - Check delete schools page
+  Scenario: Demo - Check add staff page
     Given I Login to ALEF With "ADMIN_USER_DEMO" in environment "Demo"
     And I search for "0 Multi Subject DO not touch"
-    When I click on delete button for schools
-    Then Delete school pop up message appear
+    And I select "0 Multi Subject DO not touch"
+    And I click on "staff" section
+    And I search for "Test-prin"
+    When I click on add staff button
+    Then Add school staff page appear
 
-  Scenario: Demo - Check disable schools page
+  Scenario: Demo -  Check disable staff pop up
     Given I Login to ALEF With "ADMIN_USER_DEMO" in environment "Demo"
     And I search for "0 Multi Subject DO not touch"
-    When I click on disable button for schools
-    Then Disable school pop up message appear
+    And I select "0 Multi Subject DO not touch"
+    And I click on "staff" section
+    And I search for "Test-prin"
+    When I click on disable button
+    Then Disable staff pop up appear
+
+
+
 
 
 

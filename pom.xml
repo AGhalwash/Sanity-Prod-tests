@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.stacks.bdd</groupId>
-    <artifactId>RMS-Framework</artifactId>
+    <artifactId>Alef-Framework</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <name>test bdd testing project</name>
@@ -15,7 +15,7 @@
     </description>
 
     <profiles>
-        <!-- MLM profile -->
+
         <profile>
             <id>test</id>
             <build>
@@ -351,6 +351,11 @@
             <artifactId>extentreports</artifactId>
             <version>5.0.9</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.13</version> <!-- Use the latest version available -->
+        </dependency>
         <!-- Cucumber dependencies -->
         <dependency>
             <groupId>info.cukes</groupId>
@@ -567,6 +572,12 @@
             <groupId>org.keycloak</groupId>
             <artifactId>keycloak-model-jpa</artifactId>
             <version>9.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>RELEASE</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
