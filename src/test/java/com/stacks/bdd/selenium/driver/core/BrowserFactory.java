@@ -151,6 +151,7 @@ public class BrowserFactory {
 		} else {
 			System.setProperty("webdriver.chrome.driver",
 					DRIVERS_PATH + (IS_WINDOWS ? "chromedriver.exe" : "chromedriver"));
+			System.out.println("ChromeDriver path: " + System.getProperty("webdriver.chrome.driver"));
 			options.addArguments("disable-infobars", "--start-maximized");
 			return new ChromeDriver(options);
 		}
