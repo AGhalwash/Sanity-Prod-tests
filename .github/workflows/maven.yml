@@ -25,8 +25,7 @@ jobs:
     - name: Print Chromedriver Directory
       run: ls -l src/test/resources/com/stacks/bdd/selenium/driver/
 
-    - name: Debug Chromedriver Path
-      run: echo "Current Directory: $(pwd), File Exists: $(test -e src/test/resources/com/stacks/bdd/selenium/driver/chromedriver && echo true || echo false)"
+
 
     - name: Set Chromedriver permissions
       run: chmod +x src/test/resources/com/stacks/bdd/selenium/driver/chromedriver
