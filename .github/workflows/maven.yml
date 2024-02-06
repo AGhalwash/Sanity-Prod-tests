@@ -20,7 +20,9 @@ jobs:
         cache: maven
 
     - name: Set Chromedriver permissions
-      run: chmod +x src/test/resources/com/stacks/bdd/selenium/driver/chromedriver
+      run: |
+        cd src/test/resources/com/stacks/bdd/selenium/driver/
+        chmod +x chromedriver
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
