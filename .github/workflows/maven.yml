@@ -1,11 +1,10 @@
-name: Prod-Sanity-Tests
+name: Java CI with Maven
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-  workflow_dispatch:  # Manual trigger
 
 jobs:
   build:
@@ -26,5 +25,6 @@ jobs:
         mvn clean
         rm -rf target
 
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Build and Run Tests in Parallel
+      run: |
+        mvn -B test-compile failsafe:integration-test failsafe:verify -P selenium-chrome -Dparallel=classes -DthreadCount=4
