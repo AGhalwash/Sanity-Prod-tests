@@ -26,3 +26,6 @@ jobs:
         wget -qP src/test/resources/com/stacks/bdd/selenium/driver/ "https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip"
         unzip -q -d src/test/resources/com/stacks/bdd/selenium/driver/ "src/test/resources/com/stacks/bdd/selenium/driver/chromedriver_linux64.zip"
         rm src/test/resources/com/stacks/bdd/selenium/driver/chromedriver_linux64.zip
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
