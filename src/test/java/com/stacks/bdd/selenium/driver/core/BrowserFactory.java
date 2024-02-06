@@ -25,7 +25,7 @@ public class BrowserFactory {
 
 	private static final Logger logger = Logger.getLogger(BrowserFactory.class.getName());
 
-	private static final String DRIVERS_PATH = "src//test//resources//com//stacks//bdd//selenium//driver//";
+	private static final String DRIVERS_PATH = "src/test/resources/com/stacks/bdd/selenium/driver/";
 	private static final String DEBUG = "debug_OMI360";
 	private static final String DEBUG_FIREFOX = "debug";
 	private static final String NO_DEBUG = "no_debug";
