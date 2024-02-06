@@ -23,7 +23,8 @@ public enum SchoolsLocator implements Locator, I18nLocator {
     SCHOOL_DELETE_BUTTON(By.xpath("//*[contains(@data-testid, 'table-action-button-delete')]")),
     SCHOOL_DISABLE_BUTTON(By.xpath("//*[contains(@data-testid, 'table-action-button-disable')]")),
     DELETE_BUTTON(By.xpath("//i[contains(@data-qa, 'table-item-delete')]")),
-    FIRST_ROW_BY_NAME("classes.first.row.by.name"),
+    FIRST_ROW_BY_NAME("first.row.by.name"),
+    FIRST_DISABLED_ROW_BY_NAME("first.disabled.row.by.name"),
     DELETE_POP_UP_TITLE(By.xpath("//h2[contains(@class,'swal2-title') and text()='Delete class']")),
     DELETE_SCHOOL_POP_UP_MESSAGE(By.xpath("//div[contains(@id, 'swal2-content') and contains(text(), 'Are you sure you want to delete')]")),
     DISABLE_SCHOOL_POP_UP_MESSAGE(By.xpath("//div[contains(@id, 'swal2-content') and contains(text(), 'Are you sure you want to deactivate this school?')]"))

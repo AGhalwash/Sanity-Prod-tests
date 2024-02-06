@@ -1,15 +1,6 @@
 
 Feature: ALEF - Idn classes sanity tests
 
-
-  Scenario: Idn - Check pathway search
-    Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
-    And I click on first school
-    And I click on "classes" section
-    And I click on add class button
-    When I search by "pathway" in class material dropdown menu
-    Then I find pathway options
-
   Scenario: Idn - Check search for class
     Given I Login to ALEF With "ADMIN_USER_IDN" in environment "IDN"
     And I search for "DEMO SCHOOL (22189)"

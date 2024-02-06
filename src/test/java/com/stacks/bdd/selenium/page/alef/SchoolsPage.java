@@ -35,6 +35,10 @@ public class SchoolsPage extends PageObject {
         Waiter.waitExpectedConditionsVisibilityOf(driver, SEARCH_TEXT_FIELD.by(), 5);
         driver.sendKeysTo(value, SEARCH_TEXT_FIELD.by());
         driver.clickOn(SEARCH_ICON_BUTTON);
+        driver.clearField(SEARCH_TEXT_FIELD.by());
+        driver.sendKeysTo(value, SEARCH_TEXT_FIELD.by());
+        driver.clickOn(SEARCH_ICON_BUTTON);
+
     }
 
     public boolean findSearched(String value) {
@@ -53,14 +57,14 @@ public class SchoolsPage extends PageObject {
 
     public void clickOnDeleteButton() {
         Waiter.waitExpectedConditionsVisibilityOf(driver, DELETE_BUTTON.by(), 5);
-        driver.clickOnAndVerify(DELETE_BUTTON.by(),DELETE_POP_UP_TITLE.by());
+        driver.clickOnAndVerify(DELETE_BUTTON.by(), DELETE_POP_UP_TITLE.by());
     }
 
-    public boolean checkDeletePopupTitle(){
+    public boolean checkDeletePopupTitle() {
         return Waiter.waitExpectedConditionsVisibilityOf(driver, DELETE_POP_UP_TITLE.by(), 5);
     }
 
-    public boolean classPageAppeared(String value){
+    public boolean classPageAppeared(String value) {
         boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by(value), 5);
         boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Basic Information"), 5);
         boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Contact Information"), 5);
@@ -71,7 +75,7 @@ public class SchoolsPage extends PageObject {
         return (condition1 && condition2 && condition3 && condition4 && condition5 && condition6 && condition7);
     }
 
-    public boolean schoolDetailsPageAppeared(String value){
+    public boolean schoolDetailsPageAppeared(String value) {
         boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by(value), 5);
         boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Basic Information"), 5);
         boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Contact Information"), 5);
@@ -85,7 +89,7 @@ public class SchoolsPage extends PageObject {
         return (condition1 && condition2 && condition3 && condition4 && condition5 && condition6 && condition7 && condition8 && condition9 && condition10);
     }
 
-    public boolean editSchoolPageAppeared(String value){
+    public boolean editSchoolPageAppeared(String value) {
         boolean condition1 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Basic Information"), 5);
         boolean condition2 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Edit school information"), 5);
         boolean condition3 = Waiter.waitExpectedConditionsVisibilityOf(driver, HEAD_TITLE_TEXT.by("Contact Information"), 5);
@@ -95,24 +99,24 @@ public class SchoolsPage extends PageObject {
         return (condition1 && condition2 && condition3 && condition4 && condition6 && condition9);
     }
 
-    public void clickOnDeleteSchoolButton(){
-        Waiter.waitExpectedConditionsVisibilityOf(driver,SCHOOL_SETTINGS_BUTTON.by(),5);
-        driver.clickOnAndVerify(SCHOOL_SETTINGS_BUTTON.by(),SCHOOL_DELETE_BUTTON.by());
+    public void clickOnDeleteSchoolButton() {
+        Waiter.waitExpectedConditionsVisibilityOf(driver, SCHOOL_SETTINGS_BUTTON.by(), 5);
+        driver.clickOnAndVerify(SCHOOL_SETTINGS_BUTTON.by(), SCHOOL_DELETE_BUTTON.by());
         driver.clickOn(SCHOOL_DELETE_BUTTON);
     }
 
-    public void clickOnDisableSchoolButton(){
-        Waiter.waitExpectedConditionsVisibilityOf(driver,SCHOOL_SETTINGS_BUTTON.by(),5);
-        driver.clickOnAndVerify(SCHOOL_SETTINGS_BUTTON.by(),SCHOOL_DISABLE_BUTTON.by());
+    public void clickOnDisableSchoolButton() {
+        Waiter.waitExpectedConditionsVisibilityOf(driver, SCHOOL_SETTINGS_BUTTON.by(), 5);
+        driver.clickOnAndVerify(SCHOOL_SETTINGS_BUTTON.by(), SCHOOL_DISABLE_BUTTON.by());
         driver.clickOn(SCHOOL_DISABLE_BUTTON);
     }
 
-    public boolean deleteSchoolPopupMessage(){
-        return Waiter.waitExpectedConditionsVisibilityOf(driver,DELETE_SCHOOL_POP_UP_MESSAGE.by(),5);
+    public boolean deleteSchoolPopupMessage() {
+        return Waiter.waitExpectedConditionsVisibilityOf(driver, DELETE_SCHOOL_POP_UP_MESSAGE.by(), 5);
     }
 
-    public boolean disableSchoolPopupMessage(){
-        return Waiter.waitExpectedConditionsVisibilityOf(driver,DISABLE_SCHOOL_POP_UP_MESSAGE.by(),5);
+    public boolean disableSchoolPopupMessage() {
+        return Waiter.waitExpectedConditionsVisibilityOf(driver, DISABLE_SCHOOL_POP_UP_MESSAGE.by(), 5);
     }
 }
 

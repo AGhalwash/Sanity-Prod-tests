@@ -4,7 +4,9 @@ Feature: ALEF - Us sanity tests
 
   Scenario: Us - Check pathway search
     Given I Login to ALEF With "ADMIN_USER_US" in environment "US"
-    And I click on first school
+    And I choose organization "North Carolina"
+    And I search for "Polk County Middle School"
+    And I select "Polk County Middle School"
     And I click on "classes" section
     And I click on add class button
     When I search by "pathway" in class material dropdown menu
