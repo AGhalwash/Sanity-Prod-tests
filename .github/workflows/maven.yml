@@ -20,17 +20,17 @@ jobs:
         distribution: 'adopt'
         cache: maven
 
+    - name: Print Contents of chromedriver Directory
+      run: |
+        ls -l src/test/resources/com/stacks/bdd/selenium/driver/
+
     - name: Clean Build
-      run: mvn clean
+      run: |
+        mvn clean
+        rm -rf target
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
-    - name: Debug Project Directory
-      run: |
-        ls -R
-        echo "Contents of com/stacks/bdd/selenium/driver/:"
-        ls -l src/test/resources/com/stacks/bdd/selenium/driver/
 
     - name: Run Selenium Tests with Chrome
       run: mvn test -P selenium-chrome
