@@ -127,6 +127,7 @@ public class BrowserFactory {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--lang=" + LOCALE);
 		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--headless");
 
 		if (SELENIUM_GRID) {
 			options.setCapability(ChromeOptions.CAPABILITY, options);
