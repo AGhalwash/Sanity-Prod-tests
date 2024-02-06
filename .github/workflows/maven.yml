@@ -22,14 +22,6 @@ jobs:
     - name: Print Current Directory
       run: pwd
 
-    - name: Print Chromedriver Directory
-      run: ls -l src/test/resources/com/stacks/bdd/selenium/driver/
-
-
-
-    - name: Set Chromedriver permissions
-      run: chmod +x src/test/resources/com/stacks/bdd/selenium/driver/chromedriver
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
