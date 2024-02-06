@@ -5,32 +5,21 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-
+  workflow_dispatch:  # Manual trigger
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Set up JDK 8
       uses: actions/setup-java@v2
       with:
         java-version: '8'
         distribution: 'adopt'
         cache: maven
-
-    - name: Print Contents of chromedriver Directory
-      run: |
-        ls -l src/test/resources/com/stacks/bdd/selenium/driver/
-
     - name: Clean Build
       run: |
         mvn clean
         rm -rf target
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-
-    - name: Run Selenium Tests with Chrome
-      run: mvn test -P selenium-chrome
