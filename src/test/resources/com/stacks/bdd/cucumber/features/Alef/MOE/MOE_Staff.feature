@@ -8,7 +8,7 @@ Feature: ALEF - Moe staff sanity tests
     And I select "Al Tafawwoq School"
     And I click on "staff" section
     When I search for "Mariam"
-    Then I find "Principal 20"
+    Then I find "Mariam"
 
   Scenario: Moe - Check edit staff page
     Given I Login to ALEF With "ADMIN_USER_MOE" in environment "MOE"

@@ -35,10 +35,7 @@ public class SchoolsPage extends PageObject {
         Waiter.waitExpectedConditionsVisibilityOf(driver, SEARCH_TEXT_FIELD.by(), 5);
         driver.sendKeysTo(value, SEARCH_TEXT_FIELD.by());
         driver.clickOn(SEARCH_ICON_BUTTON);
-        driver.clearField(SEARCH_TEXT_FIELD.by());
-        driver.sendKeysTo(value, SEARCH_TEXT_FIELD.by());
-        driver.clickOn(SEARCH_ICON_BUTTON);
-
+        Waiter.sleep(3000);
     }
 
     public boolean findSearched(String value) {
