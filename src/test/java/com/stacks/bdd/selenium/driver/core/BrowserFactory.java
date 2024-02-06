@@ -3,6 +3,7 @@ package com.stacks.bdd.selenium.driver.core;
 
 import com.stacks.bdd.constants.core.Browser;
 import com.stacks.bdd.constants.core.SystemProperties;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -122,38 +123,32 @@ public class BrowserFactory {
 	}
 
 	private static WebDriver getChromeDriver() {
+		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--lang=" + LOCALE);
-		options.addArguments("--lang=" + LOCALE);
 		options.addArguments("--remote-allow-origins=*");
+
 		if (SELENIUM_GRID) {
 			options.setCapability(ChromeOptions.CAPABILITY, options);
-			// https://confluencechs.cegedim.com/pages/viewpage.action?pageId=44045964#SWFDO-PortainerforBDD(pswfbdd01.emea.cegedim.grp)-ConnecttoSelenium'snodedesktopbyVNC:
-		/*	if(SELENIUM_GRID_DEBUG) {
-				options.setCapability("applicationName", DEBUG);
-			} else {
-				options.setCapability("applicationName", NO_DEBUG);
-			}*/
+
 			RemoteWebDriver driver = new RemoteWebDriver(SELENIUM_GRID_URL, options);
 			driver.setFileDetector(new LocalFileDetector());
-			if(SELENIUM_GRID_DEBUG) {
-				// Bear in mind that in non-debug images, the maximize window command won't
-				// work. You can use the resize window command instead. Also, some browser
-				// drivers allow specifying window size in capabilities.
+
+			if (SELENIUM_GRID_DEBUG) {
 				Waiter.sleep(1500);
 				driver.manage().window().maximize();
-			}
-			else {
+			} else {
 				Waiter.sleep(1500);
-				driver.manage().window().setSize(new Dimension(1920,1080));
+				driver.manage().window().setSize(new Dimension(1920, 1080));
 			}
+
 			return driver;
 		} else {
-			System.setProperty("webdriver.chrome.driver",
-					DRIVERS_PATH + (IS_WINDOWS ? "chromedriver.exe" : "chromedriver"));
 			System.out.println("ChromeDriver path: " + System.getProperty("webdriver.chrome.driver"));
+
 			options.addArguments("disable-infobars", "--start-maximized");
-			return new ChromeDriver(options);
+			WebDriver driver = new ChromeDriver(options);
+			return driver;
 		}
 	}
 
