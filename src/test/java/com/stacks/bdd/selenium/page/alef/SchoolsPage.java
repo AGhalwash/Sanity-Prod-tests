@@ -32,7 +32,7 @@ public class SchoolsPage extends PageObject {
     }
 
     public void searchFor(String value) {
-        Waiter.sleep(80000);
+        Waiter.sleep(8000);
         Waiter.waitExpectedConditionsVisibilityOf(driver, SEARCH_TEXT_FIELD.by(), 5);
         driver.sendKeysTo(value, SEARCH_TEXT_FIELD.by(),5);
         driver.clickOn(SEARCH_ICON_BUTTON);
