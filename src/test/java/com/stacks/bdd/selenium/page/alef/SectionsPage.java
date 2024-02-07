@@ -5,7 +5,6 @@ import com.stacks.bdd.selenium.driver.core.PageObject;
 import com.stacks.bdd.selenium.driver.core.Waiter;
 
 import static com.stacks.bdd.selenium.locator.alef.ClassesLocator.HEAD_TITLE_TEXT;
-import static com.stacks.bdd.selenium.locator.alef.GradesLocator.DELETE_BUTTON;
 import static com.stacks.bdd.selenium.locator.alef.SchoolsLocator.FIRST_DISABLED_ROW_BY_NAME;
 import static com.stacks.bdd.selenium.locator.alef.SectionsLocator.*;
 
@@ -69,14 +68,14 @@ public class SectionsPage extends PageObject {
         driver.clickOnAndVerify(ENABLE_SECTION_BUTTON.by(), DISABLE_SECTION_BUTTON.by());
     }
 
-    public void clickOnGenerateSectionsButton(){
+    public void clickOnGenerateSectionsButton() {
         Waiter.waitExpectedConditionsVisibilityOf(driver, GENERATE_SECTIONS_BUTTON.by(), 5);
         driver.clickOnAndVerify(GENERATE_SECTIONS_BUTTON.by());
     }
 
     public void clickOnDeleteSectionButton() {
         Waiter.waitExpectedConditionsVisibilityOf(driver, DELETE_SECTION_BUTTON.by(), 5);
-        driver.clickOnAndVerify(DELETE_SECTION_BUTTON.by(),DELETE_SECTION_POP_UP_MESSAGE.by());
+        driver.clickOnAndVerify(DELETE_SECTION_BUTTON.by(), DELETE_SECTION_POP_UP_MESSAGE.by());
     }
 }
 

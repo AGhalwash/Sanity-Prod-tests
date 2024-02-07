@@ -55,7 +55,7 @@ public class SchoolsPage extends PageObject {
 
     public void clickOnDeleteButton() {
         Waiter.waitExpectedConditionsVisibilityOf(driver, DELETE_BUTTON.by(), 5);
-        driver.clickOnAndVerify(DELETE_BUTTON.by(), DELETE_POP_UP_TITLE.by());
+        driver.clickOn(DELETE_BUTTON.by());
     }
 
     public boolean checkDeletePopupTitle() {
