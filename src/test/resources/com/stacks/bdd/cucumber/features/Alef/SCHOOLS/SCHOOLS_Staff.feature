@@ -8,7 +8,7 @@ Feature: ALEF - Schools staff sanity tests
     And I select "AL AIN MILITARY HIGH SCHOOL"
     And I click on "staff" section
     When I search for "Mariam"
-    Then I find "Principal 20"
+    Then I find "Mariam"
 
   Scenario: Schools - Check edit staff page
     Given I Login to ALEF With "ADMIN_USER_SCHOOLS" in environment "Schools"

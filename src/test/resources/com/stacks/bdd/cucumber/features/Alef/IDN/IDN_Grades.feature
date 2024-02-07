@@ -24,8 +24,7 @@ Feature: ALEF - Idn grades sanity tests
     And I search for "DEMO SCHOOL (22189)"
     And I select "DEMO SCHOOL (22189)"
     And I click on "grades" section
-    And I search for "8"
-    When I click on edit grade button
+    When I click on add grades button
     Then Add grades page appear
 
   Scenario: Idn -  Check delete grade pop up
